@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link,useLocation} from 'react-router-dom'
 import {
   Collapse,
   Navbar,
@@ -31,15 +32,18 @@ import {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto text-white" navbar>
-            <NavItem>
-              <NavLink className='text-white' href="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className='text-white' href="/About">ABOUT US</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className='text-white' href="/Services">Services</NavLink>
-            </NavItem>
+          <NavItem className="navbar-item " active={useLocation().pathname === '/'}>
+          <NavLink  tag={Link} to="/">Home</NavLink>                     
+          </NavItem>
+            
+          <NavItem className="navbar-item " active={useLocation().pathname === '/About'}>
+          <NavLink  tag={Link} to="/About">ABOUT US</NavLink>                     
+          </NavItem>
+            
+          <NavItem className="navbar-item " active={useLocation().pathname === '/Services'}>
+          <NavLink  tag={Link} to="/Services">Services</NavLink>                     
+          </NavItem>
+            
             <NavItem>
               <NavLink className='text-white' href="/Contact">Contact</NavLink>
             </NavItem>
