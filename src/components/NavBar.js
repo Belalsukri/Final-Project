@@ -32,20 +32,24 @@ import {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto text-white" navbar>
             <NavItem>
-              <NavLink className='text-white' href="/components/">Home</NavLink>
+              <NavLink className='text-white' href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className='text-white' href="/components/">ABOUT US</NavLink>
+              <NavLink className='text-white' href="/About">ABOUT US</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className='text-white' href="/components/">Services</NavLink>
+              <NavLink className='text-white' href="/Services">Services</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className='text-white' href="/components/">productes</NavLink>
+              <NavLink className='text-white' href="/Contact">Contact</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className='text-white' href="/components/">contact</NavLink>
+              <NavLink className='text-white' href="/Login">Login</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink className='text-white' href="/Register">Register</NavLink>
+            </NavItem>
+            
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret className='text-white'>
                 blog

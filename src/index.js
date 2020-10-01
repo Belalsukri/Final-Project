@@ -1,15 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NavBar from './components/NavBar'
-import RouterHome from './components/home/RouterHome'
-import Footer from './components/Footer'
+
+import Router from './components/Router'
 const App =()=>{
     return(
-        <React.Fragment>
-            <NavBar />
-           <RouterHome/>
-            <Footer />
-         </React.Fragment>
+          
+            <Router >
+           <div>
+
+           </div>
+            </Router >
+        
         
     )
 }
