@@ -30,13 +30,13 @@ app.post('/register', (req, res) => {
     // 1 user registered successfuly
     // 3 user is exist
     // 4 server error
-    console.log(req.body);
+  //  console.log(req.body);
     const fname = req.body.fname.trim()
     const lname = req.body.lname.trim()
     const email = req.body.email.trim()
     const password = req.body.password
     const repassword = req.body.repassword
-    console.log(req.body);
+   // console.log(req.body);
     if (fname && lname && email && password && password == repassword){
         dataModule.registerUser(fname, lname, email, password).then(() => {
             res.json(1)

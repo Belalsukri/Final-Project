@@ -55,6 +55,10 @@ import {
           <NavItem className="navbar-item text-white" active={useLocation().pathname === '/Register'}>
           <NavLink className='text-white' tag={Link} to="/Register">Register</NavLink>                     
           </NavItem>
+
+          <NavItem className="navbar-item text-white" active={useLocation().pathname === '/Admin'}>
+          <NavLink className='text-white' tag={Link} to="/Admin">Admin</NavLink>                     
+          </NavItem>
             
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret className='text-white'>

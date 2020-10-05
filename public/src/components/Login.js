@@ -40,6 +40,7 @@ const Login=(props)=>{
       })
     } else {
       loginPost(myState.email, myState.password).then(data => {
+        console.log(data);
         switch (data) {
           case 2:
             setMyState({... myState, entriesError: true, errorElement: <p>there was a server error</p>, errorTitle: 'Server Error' })
@@ -54,7 +55,7 @@ const Login=(props)=>{
             // show admin panel
             props.setUserAction(myState.email)
             history.push('/admin')
-            //console.log('should be login');
+            console.log('should be login');
             break;
         
           default:
