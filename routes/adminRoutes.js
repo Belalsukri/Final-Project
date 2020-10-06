@@ -23,3 +23,44 @@ adminRouter.use((req, res, next) => {
        }
     }
 })
+adminRouter.post('/', (req, res) => {
+    if (req.body.email && req.body.password) {
+        console.log(req.body);
+
+        dataModule.checkAdmin(req.body.email.trim(), req.body.password).then(user => {
+            req.session.user = user
+            res.json(1)
+        }).catch(error => {
+            if (error == 3) {
+                res.json(3)
+            } else {
+                res.json(4)
+            }
+        })
+    } else {
+        res.json(2)
+    }
+    
+});
+adminRouter.post('/AddRobot', (req, res) => {
+    if (req.body.type && req.body.SerialNumber) {
+       // console.log(req.body);
+        dataModule.AddRobot(req.body.type, req.body.SerialNumber, req.session.user.id).then(() => {
+            res.json(1)
+        }).catch(error => {
+            if (error == 4) {
+                res.json(4)
+            } else {
+                if(error == 5){
+                    res.json(5)
+                }else{
+                    res.json(3)
+                }
+            }
+        })
+    } else {
+        res.json(2)
+    }
+    
+});
+module.exports = adminRouter

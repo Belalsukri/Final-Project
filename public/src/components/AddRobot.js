@@ -55,7 +55,7 @@ import {AddRobotPost} from '../services/api'
           case 1:
             // show admin panel
            // props.setUserAction(myState.email)
-            history.push('/AddRobot')
+            history.push('/Admin/Robots')
             console.log('should be login');
             break;
         

@@ -65,6 +65,38 @@ export const loginPost = (email,password) => {
 }
 
 
+export const loginAdminPost = (email,password) => {
+    const sendData={
+      email,
+      password
+        
+    }
+    return new Promise((resolve, reject) => {
+        fetch('/Admin',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(sendData)
+        }).then(response => {
+            if (response.status === 200) {
+                response.json().then(data => {
+                    //console.log(data);
+                    resolve(data)
+                }).catch(error => {
+                    reject(error)
+                })
+            }else{
+                reject(new Error('can not send data to server. response number is :'+response.status))
+            }
+        }).catch(error => {
+            reject(error)
+        })
+
+    })
+    
+}
+
 export const AddRobotPost = (type,SerialNumber) => {
     const sendData={
         type,
@@ -72,7 +104,7 @@ export const AddRobotPost = (type,SerialNumber) => {
         
     }
     return new Promise((resolve, reject) => {
-        fetch('/addrobotpost',{
+        fetch('/admin/AddRobot',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

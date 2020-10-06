@@ -56,8 +56,12 @@ import {
           <NavLink className='text-white' tag={Link} to="/Register">Register</NavLink>                     
           </NavItem>
 
-          <NavItem className="navbar-item text-white" active={useLocation().pathname === '/AddRobot'}>
-          <NavLink className='text-white' tag={Link} to="/AddRobot">Add Robot</NavLink>                     
+          <NavItem className="navbar-item text-white" active={useLocation().pathname === '/admin/AddRobot'}>
+          <NavLink className='text-white' tag={Link} to="/Admin/AddRobot">Add Robot</NavLink>                     
+          </NavItem>
+
+          <NavItem className="navbar-item text-white" active={useLocation().pathname === '/admin/Robots'}>
+          <NavLink className='text-white' tag={Link} to="/Admin/Robots">Robots</NavLink>                     
           </NavItem>
             
             <UncontrolledDropdown nav inNavbar>

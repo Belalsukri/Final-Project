@@ -1,13 +1,16 @@
-import React, { useState,useEffect} from 'react'
+
+
+import React, { useState} from 'react'
 import PopupModal from './PopupModal'
 
-import {loginPost} from '../services/api'
+import {loginAdminPost} from '../services/api'
 import {useHistory} from 'react-router-dom'
 
-const Login=(props)=>{
-  
 
-  const history = useHistory()
+
+const Admin=()=> {
+
+    const history = useHistory()
   const intialState = {
     email: '',
     password: '',
@@ -39,7 +42,7 @@ const Login=(props)=>{
         errorTitle: 'Entries Error'
       })
     } else {
-      loginPost(myState.email, myState.password).then(data => {
+        loginAdminPost(myState.email, myState.password).then(data => {
         console.log(data);
       //  history.push('/admin')
         switch (data) {
@@ -73,8 +76,9 @@ const Login=(props)=>{
       entriesError: false
     })
   }
-    return(
-<React.Fragment>
+    return (
+        <div>
+            <React.Fragment>
 <PopupModal
         show={myState.entriesError}
         close={closeModal}
@@ -141,6 +145,8 @@ const Login=(props)=>{
       </div>
 
 </React.Fragment>
+
+        </div>
     )
 }
-export default Login
+export default Admin
