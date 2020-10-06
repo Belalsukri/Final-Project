@@ -8,7 +8,7 @@ import Services from './Services'
 import Login from './Login'
 import Register from './Register'
 import Contact from './Contact'
-import Admin from './Admin'
+import AddRobot from './AddRobot'
 class Router extends React.Component {
       render() {
         return (
@@ -24,7 +24,7 @@ class Router extends React.Component {
                   <Route path='/Login'exact component={Login}/>
                   <Route path='/Register'exact component={Register}/>
                   <Route path='/Contact'exact component={Contact}/>
-                  <Route path='/Admin'exact component={Admin}/>
+                  <Route path='/AddRobot'exact component={AddRobot}/>
                   </Switch>
                   <Footer/>
               

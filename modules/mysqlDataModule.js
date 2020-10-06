@@ -77,7 +77,7 @@ function checkUser(email, password) {
                 reject(4)
             } else {
                 if (passwordHash.verify(password, result[0].password)) {
-                    result[0]._id = result[0].id
+                    
                     resolve(result[0])
                     console.log(result[0]);
                 } else {
@@ -90,7 +90,40 @@ function checkUser(email, password) {
     })
 }
 
+
+function AddRobot(name, SerialNumber ,userId) {
+    return new Promise((resolve, reject) => {
+        // "INSERT INTO users (email, password) VALUES ('" + email + "', '" + passwordHash.generate(password) + "')"
+        runQuery(`SELECT * FROM robot where serial_number like '${SerialNumber}'`).then(result => {
+             console.log(result)
+             
+             
+                    if (result.length ) {
+
+                      if(result[0].user_id){
+                        reject(5) // 5 robot is used
+                      } else {
+                          // add robot to user
+                          runQuery(`UPDATE robot set user_id =${userId} , name='${name}' where serial_number like '${SerialNumber}'`).then(()=>{
+                              resolve()
+                          }).catch(error=>{
+                            reject(error)
+                          })
+                      }
+                       
+                    } else {
+                        reject(4) // 4 serial number is not exist
+                        
+                    } 
+             
+         }).catch(error => {
+             reject(error)
+         })
+    })
+}
+
 module.exports = {
     registerUser,
-    checkUser
+    checkUser,
+    AddRobot
 }

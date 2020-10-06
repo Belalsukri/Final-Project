@@ -3,7 +3,7 @@ const fs = require('fs')
 const session = require('express-session')
 const cookie = require('cookie-parser')
 const fileupload = require('express-fileupload')
-
+const cors = require('cors')
 const dataModule = require('./modules/mysqlDataModule')
 
 const app = express()
@@ -11,6 +11,7 @@ const app = express()
 app.use(express.static(__dirname + '/public/build'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+app.use(cors())
 const sessionOptions = {
     secret: 'bookStore',
     cookie: {} 
@@ -57,6 +58,7 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
     if (req.body.email && req.body.password) {
         console.log(req.body);
+
         dataModule.checkUser(req.body.email.trim(), req.body.password).then(user => {
             req.session.user = user
             res.json(1)
@@ -73,6 +75,31 @@ app.post('/login', (req, res) => {
     
 });
 
+
+app.post('/addrobotpost', (req, res) => {
+    if (req.body.type && req.body.SerialNumber) {
+        
+       // console.log(req.body);
+       // 
+        dataModule.AddRobot(req.body.type, req.body.SerialNumber, req.session.user.id).then(() => {
+           
+            res.json(1)
+        }).catch(error => {
+            if (error == 4) {
+                res.json(4)
+            } else {
+                if(error == 5){
+                    res.json(5)
+                }else{
+                    res.json(3)
+                }
+            }
+        })
+    } else {
+        res.json(2)
+    }
+    
+});
 
 app.use('/', (req, res) => {
     const html = fs.readFileSync(__dirname + '/public/build/index.html' , 'utf-8')

@@ -1,8 +1,8 @@
 import React, { useState,useEffect} from 'react'
 import PopupModal from './PopupModal'
-import validator from 'validator';
+
 import {loginPost} from '../services/api'
-import {Link,useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const Login=(props)=>{
   
@@ -41,6 +41,7 @@ const Login=(props)=>{
     } else {
       loginPost(myState.email, myState.password).then(data => {
         console.log(data);
+      //  history.push('/admin')
         switch (data) {
           case 2:
             setMyState({... myState, entriesError: true, errorElement: <p>there was a server error</p>, errorTitle: 'Server Error' })
@@ -53,8 +54,8 @@ const Login=(props)=>{
             break;
           case 1:
             // show admin panel
-            props.setUserAction(myState.email)
-            history.push('/admin')
+           // props.setUserAction(myState.email)
+            history.push('/AddRobot')
             console.log('should be login');
             break;
         
@@ -87,7 +88,7 @@ const Login=(props)=>{
             <img src="./img/roboot.png" alt=""/>
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
-            <input type="submit" name="" value="Login"/><br/>
+            
           </div>
           <div class="col-md-9 register-right">
 
@@ -128,7 +129,7 @@ const Login=(props)=>{
                      }}
                        value={myState.password}/>
                     </div>
-                    <button className="btn black" onClick={onLoginBtnClick}>Login</button>
+                    <button className="btnRegister" onClick={onLoginBtnClick}>Login</button>
                   </div>
                 </div>
               </div>

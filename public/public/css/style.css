@@ -49,6 +49,18 @@
     padding: 10%;
     margin-top: 10%;
 }
+.btnReg{
+    
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2% 20% 2% 20% ;
+    background: #fff;
+    color:#0062cc;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
 .btnRegister{
     float: right;
     margin-top: 10%;

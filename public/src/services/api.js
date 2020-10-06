@@ -63,3 +63,36 @@ export const loginPost = (email,password) => {
     })
     
 }
+
+
+export const AddRobotPost = (type,SerialNumber) => {
+    const sendData={
+        type,
+        SerialNumber
+        
+    }
+    return new Promise((resolve, reject) => {
+        fetch('/addrobotpost',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(sendData)
+        }).then(response => {
+            if (response.status === 200) {
+                response.json().then(data => {
+                    //console.log(data);
+                    resolve(data)
+                }).catch(error => {
+                    reject(error)
+                })
+            }else{
+                reject(new Error('can not send data to server. response number is :'+response.status))
+            }
+        }).catch(error => {
+            reject(error)
+        })
+
+    })
+    
+}

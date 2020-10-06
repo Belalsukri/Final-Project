@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import validator from 'validator'
-
+import {Link} from 'react-router-dom'
 import {registerPost} from '../services/api'
 
 const Register = () => {
@@ -46,7 +46,8 @@ const Register = () => {
             <img src="./img/roboot.png" alt=""/>
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
-            <input type="submit" name="" value="Login"/><br/>
+            
+            <Link  className="btnReg " to='/Login' > Login </Link><br/>
           </div>
           <div className="col-md-9 register-right">
 
