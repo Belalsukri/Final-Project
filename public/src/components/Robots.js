@@ -94,7 +94,7 @@ confirmModalPayLoad: null
               <Link to={"/robot/"+robot.name +'/'+ robot.id}>{robot.name}</Link>
             </h3>
             <h6>
-              <Link className="btn btn-danger mt-3" to={"/admin/editbook/"+robot.id}>Edit
+              <Link className="btn btn-danger mt-3" to={"/Admin/EditRobot/"+robot.id}>Edit
               </Link>&nbsp;&nbsp;&nbsp;<button className="btn btn-danger mt-3" onClick={()=>{deletBtn(robot.id)}}  >Delete</button>
             </h6>
           </div>

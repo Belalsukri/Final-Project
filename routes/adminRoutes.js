@@ -81,4 +81,16 @@ adminRouter.post('/deletrobot', (req, res) => {
         res.json(2)
     })
 })
+
+adminRouter.post('/editrobot', (req, res) => {
+ const newName = req.body.name
+    console.log(newName);
+    dataModule.updateRobot(newName).then(() => {
+res.json(1)
+    }).catch(error => {
+res.json(2)
+    })
+    
+
+})
 module.exports = adminRouter

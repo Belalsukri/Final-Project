@@ -12,6 +12,7 @@ import AddRobot from './AddRobot'
 import Admin from './Admin'
 import Robots from './Robots'
 import ControlPanal from './ControlPanal'
+import EditRobot from './EditRobot'
 class Router extends React.Component {
       render() {
         return (
@@ -22,15 +23,18 @@ class Router extends React.Component {
                   
                   <Switch>
                   <Route path='/'exact component={Home}/>
-                  <Route path='/Admin'exact component={Admin}/>
-                  <Route path='/Admin/Robots'exact component={Robots}/>
+                  
                   <Route path='/About'exact component={About}/>
                   <Route path='/Services'exact component={Services}/>
                   <Route path='/Login'exact component={Login}/>
                   <Route path='/Register'exact component={Register}/>
                   <Route path='/Contact'exact component={Contact}/>
-                  <Route path='/admin/AddRobot'exact component={AddRobot}/>
                   <Route path='/ControlPanal'exact component={ControlPanal}/>
+                  <Route path='/Admin'exact component={Admin}/>
+                  <Route path='/Admin/Robots'exact component={Robots}/>
+                  <Route path='/admin/AddRobot'exact component={AddRobot}/>
+                  
+                  <Route path='/Admin/EditRobot/:id'exact component={EditRobot}/>
                   </Switch>
                   <Footer/>
               

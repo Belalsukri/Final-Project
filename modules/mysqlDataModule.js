@@ -177,48 +177,27 @@ function deleteRobot(robotid, userid) {
             console.log(err)
             reject(err)
         });
-        // userRobots(robotid).then(robot => {
-        //     // check if the robot belong to the current login user
-        //     robot.forEach(ro=>{
-        //         if(ro.robotid === robotid){
-        //             runQuery(`DELETE FROM robot WHERE id = ${ro.id}`)
-        //             .then(() => {
-                       
-        //                 resolve()
-        //             }).catch(error => {
-                        
-        //                 reject(error)
-        //             })
-        //         }
-        //     })
-        //     // const result=[]
-        //     // robot.map(rb=>{
-        //     //     result.push({
-        //     //         user_id: rb.user_id,
-        //     //         serial_number : rb.serial_number ,
-        //     //     })
-        //     // })
-           
-        //     if (result.user_id === userid) {
-        //         const serial= result.serial_number
-
-                
-        //     } else {
-        //         reject(new Error('hacking try. not this time'))
-        //     }
-       
-        // }).catch(error => {
-        //     reject(error)
-        // })
+      
     })
 
 }
 
+function updateRobot(name) {
+    return new Promise((resolve, reject) => {
+        
+              runQuery(`UPDATE robot SET name = '${name}';` ).then(()=>{
+                resolve()
+              }).catch(err=>{
+                  reject(err)
+              })   
+})
+}
 module.exports = {
     registerUser,
     checkUser,
     AddRobot,
     checkAdmin,
     userRobots,
-    deleteRobot
+    deleteRobot,
+    updateRobot
 }
