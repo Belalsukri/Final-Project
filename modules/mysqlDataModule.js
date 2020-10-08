@@ -79,7 +79,7 @@ function checkUser(email, password) {
                 if (passwordHash.verify(password, result[0].password)) {
                     
                     resolve(result[0])
-                    console.log(result[0]);
+                  //  console.log(result[0]);
                 } else {
                     reject(3)
                 }
@@ -101,7 +101,7 @@ function checkAdmin(email, password) {
                 if (passwordHash.verify(password, result[0].password)) {
                     
                     resolve(result[0])
-                    console.log(result[0]);
+                  //  console.log(result[0]);
                 } else {
                     reject(3)
                 }
@@ -116,7 +116,7 @@ function AddRobot(name, SerialNumber ,userId) {
     return new Promise((resolve, reject) => {
         // "INSERT INTO users (email, password) VALUES ('" + email + "', '" + passwordHash.generate(password) + "')"
         runQuery(`SELECT * FROM robot where serial_number like '${SerialNumber}'`).then(result => {
-             console.log(result)
+            // console.log(result)
              
              
                     if (result.length ) {
@@ -143,9 +143,82 @@ function AddRobot(name, SerialNumber ,userId) {
     })
 }
 
+
+function userRobots(userid) {
+    return new Promise((resolve, reject) => {
+        runQuery(`SELECT * FROM robot WHERE user_id like ${userid}`).then(results => {
+           // console.log(results);
+            const robots = []
+            results.forEach(result => {
+               console.log(result);
+                    robots.push({
+                        id:result.id,
+                        name: result.name,
+                        user_id: result.user_id,
+                        serial_number : result.serial_number ,
+                    })
+              //  console.log(result);
+            })
+            resolve(robots)
+            console.log(robots);
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}
+
+function deleteRobot(robotid, userid) {
+    return new Promise((resolve, reject) => {
+        console.log(robotid,userid);
+        runQuery(`DELETE FROM robot WHERE id = ${robotid} ;`).then(r=>{
+            resolve()
+        }).catch(err=>{
+            
+            console.log(err)
+            reject(err)
+        });
+        // userRobots(robotid).then(robot => {
+        //     // check if the robot belong to the current login user
+        //     robot.forEach(ro=>{
+        //         if(ro.robotid === robotid){
+        //             runQuery(`DELETE FROM robot WHERE id = ${ro.id}`)
+        //             .then(() => {
+                       
+        //                 resolve()
+        //             }).catch(error => {
+                        
+        //                 reject(error)
+        //             })
+        //         }
+        //     })
+        //     // const result=[]
+        //     // robot.map(rb=>{
+        //     //     result.push({
+        //     //         user_id: rb.user_id,
+        //     //         serial_number : rb.serial_number ,
+        //     //     })
+        //     // })
+           
+        //     if (result.user_id === userid) {
+        //         const serial= result.serial_number
+
+                
+        //     } else {
+        //         reject(new Error('hacking try. not this time'))
+        //     }
+       
+        // }).catch(error => {
+        //     reject(error)
+        // })
+    })
+
+}
+
 module.exports = {
     registerUser,
     checkUser,
     AddRobot,
-    checkAdmin
+    checkAdmin,
+    userRobots,
+    deleteRobot
 }

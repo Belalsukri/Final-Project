@@ -11,6 +11,7 @@ import Contact from './Contact'
 import AddRobot from './AddRobot'
 import Admin from './Admin'
 import Robots from './Robots'
+import ControlPanal from './ControlPanal'
 class Router extends React.Component {
       render() {
         return (
@@ -29,6 +30,7 @@ class Router extends React.Component {
                   <Route path='/Register'exact component={Register}/>
                   <Route path='/Contact'exact component={Contact}/>
                   <Route path='/admin/AddRobot'exact component={AddRobot}/>
+                  <Route path='/ControlPanal'exact component={ControlPanal}/>
                   </Switch>
                   <Footer/>
               

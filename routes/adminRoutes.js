@@ -25,7 +25,7 @@ adminRouter.use((req, res, next) => {
 })
 adminRouter.post('/', (req, res) => {
     if (req.body.email && req.body.password) {
-        console.log(req.body);
+      //  console.log(req.body);
 
         dataModule.checkAdmin(req.body.email.trim(), req.body.password).then(user => {
             req.session.user = user
@@ -63,4 +63,22 @@ adminRouter.post('/AddRobot', (req, res) => {
     }
     
 });
+adminRouter.post('/robots', (req, res) => {
+  //  console.log(req.session.user.id);
+    dataModule.userRobots(req.session.user.id).then(robot => {
+        res.json(robot)
+    }).catch(error => {
+        res.json(2);
+    })
+})
+adminRouter.post('/deletrobot', (req, res) => {
+    const robotid = req.body.robotId
+   
+    console.log(robotid);
+    dataModule.deleteRobot(robotid, req.session.user.id).then(() => {
+        res.json(1)
+    }).catch(error => {
+        res.json(2)
+    })
+})
 module.exports = adminRouter

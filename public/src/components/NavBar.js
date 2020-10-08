@@ -64,6 +64,9 @@ import {
           <NavLink className='text-white' tag={Link} to="/Admin/Robots">Robots</NavLink>                     
           </NavItem>
             
+          <NavItem className="navbar-item text-white" active={useLocation().pathname === '/ControlPanal'}>
+          <NavLink className='text-white' tag={Link} to="/ControlPanal">ControlPanal</NavLink>                     
+          </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret className='text-white'>
                 blog
