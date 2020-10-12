@@ -1,8 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {Link,useHistory} from 'react-router-dom'
 import {
-  Card, Button, CardImg, CardTitle, CardDeck,Col,
-   CardBody
+  Card,  CardDeck,
 } from 'reactstrap';
 
 import {getMyRobotPost,deletePost} from '../services/api'

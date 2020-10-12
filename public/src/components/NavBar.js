@@ -4,7 +4,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -12,7 +11,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
+  
 } from 'reactstrap';
 
 
@@ -21,17 +20,20 @@ import {
 
 	const toggle = () => setIsOpen(!isOpen);
         return (
-			<header id="header" id="home" className='nav-color text-white ' >
+			<header   className='nav-color text-white ' >
 			<div class="container main-menu">
 				<div class="row align-items-center justify-content-between d-flex">
-				  <div id="logo">
+				  <div >
 					<a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
 				  </div>
-				  <Navbar className='nav-color text-white'  fixed  expand="md" >
-       
-        <NavbarToggler onClick={toggle} />
+          
+				  <Navbar className='nav-color text-white '  fixed  expand="md" >
+          
+         
+       <NavbarToggler  id='mobile-nav-toggle' onClick={toggle}> <i className='lnr lnr-menu'></i></NavbarToggler>
+        
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto text-white" navbar>
+          <Nav className="mr-auto text-white " navbar>
           <NavItem className="navbar-item text-white" active={useLocation().pathname === '/'}>
           <NavLink className='text-white' tag={Link} to="/">Home</NavLink>                     
           </NavItem>

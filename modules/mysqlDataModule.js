@@ -114,11 +114,8 @@ function checkAdmin(email, password) {
 
 function AddRobot(name, SerialNumber ,userId) {
     return new Promise((resolve, reject) => {
-        // "INSERT INTO users (email, password) VALUES ('" + email + "', '" + passwordHash.generate(password) + "')"
         runQuery(`SELECT * FROM robot where serial_number like '${SerialNumber}'`).then(result => {
-            // console.log(result)
-             
-             
+      
                     if (result.length ) {
 
                       if(result[0].user_id){
@@ -192,6 +189,42 @@ function updateRobot(name) {
               })   
 })
 }
+
+
+function checkEmail(email) {
+    return new Promise((resolve, reject) => {
+        // any result from SELECT query will be return as an array (empty array or array with one element or array with many elements)
+        runQuery(`SELECT * FROM users where email like '${email}'`).then(result => {
+           // console.log(result)
+            if (result.length === 0) {
+                reject(4)
+            } else {
+               
+                    resolve(result[0])
+                   // console.log(result[0]);
+                   
+            }
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}
+
+function ubdatePassword(password,userId,uid) {
+    return new Promise((resolve, reject) => {
+        
+      
+        runQuery(`UPDATE users SET password ='${passwordHash.generate(password)}', reset = NULL  WHERE id =${userId} `).then(result => {
+              
+                    resolve(result)
+                    console.log(result);
+                   
+            
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}
 module.exports = {
     registerUser,
     checkUser,
@@ -199,5 +232,8 @@ module.exports = {
     checkAdmin,
     userRobots,
     deleteRobot,
-    updateRobot
+    updateRobot,
+    checkEmail,
+    ubdatePassword,
+    runQuery
 }

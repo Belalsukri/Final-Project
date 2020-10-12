@@ -54,7 +54,8 @@ const Login=(props)=>{
             break;
           case 1:
             // show admin panel
-           // props.setUserAction(myState.email)
+            
+           
             history.push('/admin/AddRobot')
             console.log('should be login');
             break;
@@ -129,6 +130,7 @@ const Login=(props)=>{
                      }}
                        value={myState.password}/>
                     </div>
+                    <a class="text-danger " href="/ForgotPassword"> Forgot Password?</a>
                     <button className="btnRegister" onClick={onLoginBtnClick}>Login</button>
                   </div>
                 </div>

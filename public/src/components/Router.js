@@ -13,6 +13,9 @@ import Admin from './Admin'
 import Robots from './Robots'
 import ControlPanal from './ControlPanal'
 import EditRobot from './EditRobot'
+import ForgotPassword from './ForgotPassword'
+import Changepassword from './Changepassword'
+
 class Router extends React.Component {
       render() {
         return (
@@ -27,6 +30,8 @@ class Router extends React.Component {
                   <Route path='/About'exact component={About}/>
                   <Route path='/Services'exact component={Services}/>
                   <Route path='/Login'exact component={Login}/>
+                  <Route path='/ForgotPassword'exact component={ForgotPassword}/>
+                  <Route path='/Changepassword/:id'exact component={Changepassword}/>
                   <Route path='/Register'exact component={Register}/>
                   <Route path='/Contact'exact component={Contact}/>
                   <Route path='/ControlPanal'exact component={ControlPanal}/>
