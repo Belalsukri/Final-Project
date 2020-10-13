@@ -34,11 +34,11 @@ class Router extends React.Component {
                   <Route path='/Changepassword/:id'exact component={Changepassword}/>
                   <Route path='/Register'exact component={Register}/>
                   <Route path='/Contact'exact component={Contact}/>
-                  <Route path='/ControlPanal'exact component={ControlPanal}/>
+                  
                   <Route path='/Admin'exact component={Admin}/>
                   <Route path='/Admin/Robots'exact component={Robots}/>
-                  <Route path='/admin/AddRobot'exact component={AddRobot}/>
-                  
+                  <Route path='/Admin/AddRobot'exact component={AddRobot}/>
+                  <Route path='/Admin/ControlPanal'exact component={ControlPanal}/>
                   <Route path='/Admin/EditRobot/:id'exact component={EditRobot}/>
                   </Switch>
                   <Footer/>

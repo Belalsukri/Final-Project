@@ -56,7 +56,7 @@ const Login=(props)=>{
             // show admin panel
             
            
-            history.push('/admin/AddRobot')
+            history.push('/Admin',myState.email)
             console.log('should be login');
             break;
         

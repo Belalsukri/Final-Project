@@ -85,12 +85,15 @@ confirmModalPayLoad: null
 
     const robotsElement = state.robots.map(robot => {
       return(
-          <div key={robot.id} className="col-md-3 ">
+          <div key={robot.id} className="col-md-4 mb-4">
           <div className="item">
-            <img className="robotimg mb-3" src='../img/robot.jpg' alt="img" />
+          <Link className="" to={"/Admin/ControlPanal/"}>
+          <img className="robotimg mb-3" src='../img/robot.jpg' alt="img" />
+          </Link>
+           
             
             <h3>
-              <Link to={"/robot/"+robot.name +'/'+ robot.id}>{robot.name}</Link>
+              <Link to={"/Admin/ControlPanal/"+robot.name +'/'+ robot.id}>{robot.name}</Link>
             </h3>
             <h6>
               <Link className="btn btn-danger mt-3" to={"/Admin/EditRobot/"+robot.id}>Edit

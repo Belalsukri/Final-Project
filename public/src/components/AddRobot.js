@@ -84,7 +84,7 @@ import {AddRobotPost} from '../services/api'
           {myState.errorElement}
         </PopUpModal>
       <div className="container register">
-        <div className="row">
+        <div className="row ">
           <div className="col-md-3 register-left">
             <img src="./img/roboot.png" alt=""/>
             <h3>Welcome</h3>

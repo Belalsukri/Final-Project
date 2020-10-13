@@ -1,152 +1,48 @@
 
 
-import React, { useState} from 'react'
-import PopupModal from './PopupModal'
+import React from 'react'
+import {Link} from 'react-router-dom'
 
-import {loginAdminPost} from '../services/api'
-import {useHistory} from 'react-router-dom'
+import {
+  Card, CardDeck
+} from 'reactstrap';
 
 
+const Admin=(props)=> {
 
-const Admin=()=> {
-
-    const history = useHistory()
-  const intialState = {
-    email: '',
-    password: '',
-    entriesError: false,
-    errorElement: null,
-    errorTitle: ''
-  }
-  const [myState, setMyState] = useState(intialState)
-
-  const onLoginBtnClick = (e) => {
-    e.preventDefault()
-    if (myState.email.trim() === '' || myState.password === '') {
-      const errorElement = (
-        <ul>
-          {myState
-            .email
-            .trim() === ''
-            ? <li>Email should not be empty</li>
-            : null}
-          {myState.password === ''
-            ? <li>Password should not be empty</li>
-            : null}
-        </ul>
-      )
-      setMyState({
-        ...myState,
-        entriesError: true,
-        errorElement,
-        errorTitle: 'Entries Error'
-      })
-    } else {
-        loginAdminPost(myState.email, myState.password).then(data => {
-        console.log(data);
-      //  history.push('/admin')
-        switch (data) {
-          case 2:
-            setMyState({... myState, entriesError: true, errorElement: <p>there was a server error</p>, errorTitle: 'Server Error' })
-            break;
-          case 3:
-            setMyState({... myState, entriesError: true, errorElement: <p>Password is wrong</p>, errorTitle: 'Wrong password' })
-            break;
-          case 4:
-            setMyState({... myState, entriesError: true, errorElement: <p>the email that you used is not exist</p>, errorTitle: 'Email not exist' })
-            break;
-          case 1:
-            // show admin panel
-           // props.setUserAction(myState.email)
-            history.push('/admin/AddRobot')
-            console.log('should be login');
-            break;
-        
-          default:
-            break;
-        }
-      }).catch(error => {
-        setMyState({... myState, entriesError: true, errorElement: <p>can not send the data</p>, errorTitle: 'unknown error' })
-      })
-    }
-  }
-  const closeModal = () => {
-    setMyState({
-      ...myState,
-      entriesError: false
-    })
-  }
+   
+  console.log(props);
     return (
-        <div>
-            <React.Fragment>
-<PopupModal
-        show={myState.entriesError}
-        close={closeModal}
-        className="bg-danger"
-        title={myState.errorTitle}>
-          {myState.errorElement}
-        </PopupModal>
-<div class="container register mb-5">
-        <div class="row">
-          <div class="col-md-3 register-left">
-            <img src="./img/roboot.png" alt=""/>
-            <h3>Welcome</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
-            
-          </div>
-          <div class="col-md-9 register-right">
-
-            <div class="tab-content" id="myTabContent">
-              <div
-                class="tab-pane fade show active"
-                id="home"
-                role="tabpanel"
-                aria-labelledby="home-tab">
-                <h3 class="register-heading">Login</h3>
-                <div class="row register-form">
-                  <div class="col-md-6">
-                    
-                    <div class="form-group">
-                      <input type="email" class="form-control"
-                       placeholder="Your Email *"
-                       required
-                       onChange={(e) => {
-                       setMyState({
-                         ...myState,
-                         email: e.target.value
-                       })
-                     }}
-                        value={myState.email}/>
-                    </div>
-
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input type="password" class="form-control"
-                       placeholder="Password *"
-                       required
-                       onChange={(e) => {
-                       setMyState({
-                         ...myState,
-                         password: e.target.value
-                       })
-                     }}
-                       value={myState.password}/>
-                    </div>
-                    <button className="btnRegister" onClick={onLoginBtnClick}>Login</button>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+      <React.Fragment>
+      <div className="container register mb-12 d-flex justify-content-center">
+    <CardDeck className='col-md-10'>
+      <Card className='col-md-12 '>
+        <div className='row mt-3'>
+        <section className="slider">
+    <div className="container">
+      <div className="row ">
+        <div className="row col-md-10 mb-5 ml-4 justify-content-center">
+          <h3>Welcome {props.location.state}</h3>
+          <div className='row mt-4 btn btn-primary col-6 radius d-flex justify-content-center'>
+          <Link className='text-white col-4' to="/admin/AddRobot">Add Robots</Link>
+          </div >
+          <br/>
+         <div className='row mt-4 btn btn-primary col-6 radius d-flex justify-content-center'> 
+         <Link className='text-white col-4' to="/admin/Robots">Robots</Link>
+         </div>
+         <br/>
+         
         </div>
-
       </div>
+    </div>
+  </section>
+        </div>   
+      </Card>  
+    </CardDeck>   
+      </div>
+  </React.Fragment>
 
-</React.Fragment>
-
-        </div>
+     
     )
 }
 export default Admin

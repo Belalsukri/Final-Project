@@ -41,7 +41,7 @@ const EditRobot = () =>{
           </div>
           <div class="col-md-9 register-right   ">
 
-            <div class="tab-content d-flex justify-content-center" id="myTabContent">
+            <div class="tab-content d-flex justify-content-center " id="myTabContent">
               <div
                 class="tab-pane fade show active col-12"
                 id="home"

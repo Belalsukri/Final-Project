@@ -1,4 +1,5 @@
-import React from 'react'
+import React ,{useEffect} from  'react'
+//import StartVideo from './StartVideo'
 
  const ControlPanal=()=> {
 
@@ -13,9 +14,27 @@ const leftBtnCar=()=>{
 }    
 
 const centerBtnCar=()=>{
-
+        let videoGrid = document.getElementById('video-grid')
+        videoGrid.muted = true;
+        let myVideoStream
+    navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true
+    }).then(stream => {
+        myVideoStream = stream;
+        addVideoStream(videoGrid,stream)
+        })    
+            function addVideoStream(video, stream) {
+                video.srcObject = stream
+                video.addEventListener('loadedmetadata', () => {
+                  video.play()
+                })
+                
+              }
 }    
+useEffect(()=>{
 
+}, [centerBtnCar])
 const rigghtBtnCar=()=>{
 
 }    
@@ -42,19 +61,18 @@ const buttomBtnCamera=()=>{
 }    
 
     return (
-    <div className=''> 
+    <div className='container'> 
+       <div className='row '>
+       <video id='video-grid' className='mx-auto d-block col-xs-4 col-md-12  mt-3 mb-3 cam'> </video>
+       </div>       
         
-        
-        <div className=''>  
-            <img src="./img/banner-img.png" class="img-fluid mx-auto d-block col-sm-12 col-md-10  mt-3 mb-3 cam" alt="Responsive image"/>
-        </div>  
-    <div className='container '>
-        <div className='row justify-content-around'> 
-            <div className='  ml-5  '>
-                <div className=' col-md-12  divColor'>
+    <div className=' '>
+        <div className='row justify-content-around  fl'> 
+            <div className='  ml-5  col-xs-5 '>
+                <div className=' col-xs-5   divColor'>
                 
                     <div className='row  justify-content-center'>    
-                        <button className='top  font'  onClick={topBtnCar}>    
+                        <button className='top font'  onClick={topBtnCar}>    
                         <i class="fal fa-arrow-alt-circle-up"></i>
                         </button> 
                     </div> 
@@ -81,13 +99,13 @@ const buttomBtnCamera=()=>{
                 </div>
             </div>
 
-                    <div className='    mt-2 mb-2 '> 
-                                <button className='center font' onClick={centerBtnCar}>    
+                    <div className='col-xs-2 '> 
+                                <button className='center font ' onClick={centerBtnCar}>    
                                 <i class="fab fa-youtube"></i> </button>  
                     </div>
             
-            <div className=' mr-5  '>
-                <div className='col-md-12  divColorleft'>
+            <div className=' mr-5 col-xs-5 '>
+                <div className='col-xs-5  divColorleft'>
                 
                     <div className='row justify-content-center'>    
                         <button className='top  font'  onClick={topBtnCar}>    
@@ -117,6 +135,28 @@ const buttomBtnCamera=()=>{
                 </div>
             </div>   
         </div>    
+    </div>
+    <div className='container '>
+      <div className='row col-xs-4 justify-content-center'>
+            <div> <button className='btn-1 font-speed ' onClick={centerBtnCar}>    
+            <i class="far fa-circle font-speed"></i> <span className='number font-speed'>1 </span> </button>   
+            </div>
+            <div> <button className='btn-1 font-speed' onClick={centerBtnCar}>    
+            <i class="far fa-circle font-speed"></i> <span className='number font-speed'>2 </span>  </button>   
+            </div>
+            <div> <button className='btn-1 font-speed' onClick={centerBtnCar}>    
+            <i class="far fa-circle font-speed"></i> <span className='number font-speed'>3 </span> </button>   
+            </div>
+            <div> <button className='btn-1 font-speed' onClick={centerBtnCar}>    
+            <i class="far fa-circle font-speed"></i> <span className='number font-speed'>4 </span> </button>   
+            </div>
+            <div> <button className='btn-1 font-speed' onClick={centerBtnCar}>    
+            <i class="far fa-circle font-speed"></i> <span className='number font-speed'>5 </span> </button>   
+            </div>
+            <div> <button className='btn-1 font-speed' onClick={centerBtnCar}>    
+            <i class="far fa-circle font-speed"></i> <span className='number font-speed'>6 </span> </button>   
+            </div>
+      </div>
     </div>
             
     </div>
