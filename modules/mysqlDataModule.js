@@ -195,13 +195,13 @@ function checkEmail(email) {
     return new Promise((resolve, reject) => {
         // any result from SELECT query will be return as an array (empty array or array with one element or array with many elements)
         runQuery(`SELECT * FROM users where email like '${email}'`).then(result => {
-           // console.log(result)
+            console.log(result)
             if (result.length === 0) {
                 reject(4)
             } else {
                
                     resolve(result[0])
-                   // console.log(result[0]);
+                    console.log(result[0]);
                    
             }
         }).catch(error => {

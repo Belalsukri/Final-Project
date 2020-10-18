@@ -88,7 +88,7 @@ confirmModalPayLoad: null
           <div key={robot.id} className="col-md-4 mb-4">
           <div className="item">
           <Link className="" to={"/Admin/ControlPanal/"}>
-          <img className="robotimg mb-3" src='../img/robot.jpg' alt="img" />
+          <img className="robotimg mb-3" src='../img/os3.jpg' alt="img" />
           </Link>
            
             

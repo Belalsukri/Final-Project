@@ -92,28 +92,28 @@ const Changepassword = (props) => {
         title={myState.errorTitle}>
           {myState.errorElement}
         </PopupModal>
-    <div class="container register mb-5">
-        <div class="row">
-          <div class="col-md-3 register-left ">
+    <div className="container register mb-5">
+        <div className="row">
+          <div className="col-md-3 register-left ">
             <img src="./img/roboot.png" alt=""/>
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
             
           </div>
-          <div class="col-md-9 register-right ">
+          <div className="col-md-9 register-right ">
 
-            <div class="tab-content " id="myTabContent ">
+            <div className="tab-content " id="myTabContent ">
               <div
-                class="tab-pane fade show active"
+                className="tab-pane fade show active"
                 
                 role="tabpanel"
                 aria-labelledby="home-tab">
-                <h3 class="register-heading">Forgot Password</h3>
-                <div class="row register-form d-flex justify-content-center">
-                  <div class="col-md-8 ">
+                <h3 className="register-heading">Forgot Password</h3>
+                <div className="row register-form d-flex justify-content-center">
+                  <div className="col-md-8 ">
                     
                     
-                      <input type="password" class="form-control d-flex justify-content-center  "
+                      <input type="password" className="form-control d-flex justify-content-center  "
                        placeholder="new password*"
                        required
                        onChange={(e) => {
@@ -124,7 +124,7 @@ const Changepassword = (props) => {
                      }}
                         value={myState.password}/>
 
-                    <input type="password" class="form-control d-flex justify-content-center  "
+                    <input type="password" className="form-control d-flex justify-content-center  "
                        placeholder="repassword*"
                        required
                        onChange={(e) => {

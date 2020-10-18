@@ -31,28 +31,28 @@ const EditRobot = () =>{
       }
 
     return (
-        <div class="container register mb-5">
-        <div class="row">
-          <div class="col-md-3 register-left">
+        <div className="container register mb-5">
+        <div className="row">
+          <div className="col-md-3 register-left">
             <img src="./img/roboot.png" alt=""/>
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
             
           </div>
-          <div class="col-md-9 register-right   ">
+          <div className="col-md-9 register-right   ">
 
-            <div class="tab-content d-flex justify-content-center " id="myTabContent">
+            <div className="tab-content d-flex justify-content-center " id="myTabContent">
               <div
-                class="tab-pane fade show active col-12"
+                className="tab-pane fade show active col-12"
                 id="home"
                 role="tabpanel"
                 aria-labelledby="home-tab">
-                <h3 class="register-heading">Edit Name</h3>
-                <div class="row register-form  d-flex justify-content-center">
-                  <div class="col-md-9" >
+                <h3 className="register-heading">Edit Name</h3>
+                <div className="row register-form  d-flex justify-content-center">
+                  <div className="col-md-9" >
                     
-                    <div class="form-group col-12">
-                      <input type="email" class="form-control"
+                    <div className="form-group col-12">
+                      <input type="email" className="form-control"
                        placeholder="Robot New Name *"
                        required
                        onChange={ inbutName}

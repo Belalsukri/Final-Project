@@ -61,15 +61,15 @@ const buttomBtnCamera=()=>{
 }    
 
     return (
-    <div className='container'> 
-       <div className='row '>
-       <video id='video-grid' className='mx-auto d-block col-xs-4 col-md-12  mt-3 mb-3 cam'> </video>
+    <div className=''> 
+       <div className='row fl'>
+       <video id='video-grid' className='mx-auto d-block col-xs-12 col-md-12  mt-3 mb-3 cam'> </video>
        </div>       
         
     <div className=' '>
-        <div className='row justify-content-around  fl'> 
-            <div className='  ml-5  col-xs-5 '>
-                <div className=' col-xs-5   divColor'>
+        <div className=' justify-content-around  fl'> 
+            <div className='row  ml-5  col-xs-5 '>
+                <div className=' col-xs-4   divColor'>
                 
                     <div className='row  justify-content-center'>    
                         <button className='top font'  onClick={topBtnCar}>    
@@ -157,6 +157,18 @@ const buttomBtnCamera=()=>{
             <i class="far fa-circle font-speed"></i> <span className='number font-speed'>6 </span> </button>   
             </div>
       </div>
+    </div>
+    <div col-xs-12>
+            <ul id="menu">
+                
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                
+            </ul>
     </div>
             
     </div>

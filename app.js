@@ -27,6 +27,11 @@ app.use(fileupload({
 
 const port = process.env.PORT || 5000
 
+app.use(function(req, res, next) {
+    res.locals.user = req.session.user;
+    next();
+  });
+
 app.post('/register', (req, res) => {
     // your post register handler here
     // console.log(req.body)
@@ -78,10 +83,11 @@ app.post('/login', (req, res) => {
 
 });
 
-app.post('/forgotPasswor', (req, res) => {
+app.post('/forgetpassword', (req, res) => {
     const emailuser = req.body.email
+    console.log( req.body.email);
     if (emailuser) {
-        // console.log(req.body);
+         console.log(req.body);
         dataModule.checkEmail(emailuser).then(user => {
             //console.log(user)
             // set reset password
@@ -163,6 +169,15 @@ app.post('/changepassword', (req, res) => {
         // })
     } else {
         res.json(2)
+    }
+})
+
+
+app.post('/checklogin',(req,res)=>{
+    if (req.session.user) {
+        res.json(req.session.user.email)
+    }else{
+        res.json(10)
     }
 })
 

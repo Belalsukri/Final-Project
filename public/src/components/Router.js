@@ -15,8 +15,19 @@ import ControlPanal from './ControlPanal'
 import EditRobot from './EditRobot'
 import ForgotPassword from './ForgotPassword'
 import Changepassword from './Changepassword'
-
+import CheckLogin from './CheckLogin'
+import {checkLogintPost} from '../services/api'
+import {connect} from 'react-redux'
+import{setUserAction} from '../actions'
 class Router extends React.Component {
+
+  componentDidMount(){
+    checkLogintPost().then(data=>{
+      if (data !=10) {
+        this.props.setUserAction(data)
+      }
+    })
+  }
       render() {
         return (
           <BrowserRouter>
@@ -27,19 +38,19 @@ class Router extends React.Component {
                   <Switch>
                   <Route path='/'exact component={Home}/>
                   
-                  <Route path='/About'exact component={About}/>
-                  <Route path='/Services'exact component={Services}/>
-                  <Route path='/Login'exact component={Login}/>
+                  <Route path='/About'exact component= {About} />
+                  <Route path='/Services'exact component= {Services}/>
+                  <Route path='/Login'exact component={()=><CheckLogin><Login/></CheckLogin>}/>
                   <Route path='/ForgotPassword'exact component={ForgotPassword}/>
                   <Route path='/Changepassword/:id'exact component={Changepassword}/>
                   <Route path='/Register'exact component={Register}/>
-                  <Route path='/Contact'exact component={Contact}/>
+                  <Route path='/Contact'exact component= {Contact} />
                   
-                  <Route path='/Admin'exact component={Admin}/>
-                  <Route path='/Admin/Robots'exact component={Robots}/>
-                  <Route path='/Admin/AddRobot'exact component={AddRobot}/>
-                  <Route path='/Admin/ControlPanal'exact component={ControlPanal}/>
-                  <Route path='/Admin/EditRobot/:id'exact component={EditRobot}/>
+                  <Route path='/Admin'exact component= {()=><CheckLogin><Admin/></CheckLogin>}/>
+                  <Route path='/Admin/Robots'exact component={()=><CheckLogin><Robots/></CheckLogin>} />
+                  <Route path='/Admin/AddRobot'exact component={()=><CheckLogin><AddRobot/></CheckLogin>}/>
+                  <Route path='/Admin/ControlPanal'exact component={()=><CheckLogin><ControlPanal/></CheckLogin>}/>
+                  <Route path='/Admin/EditRobot/:id'exact component={()=><CheckLogin><EditRobot/></CheckLogin>}/>
                   </Switch>
                   <Footer/>
               
@@ -47,4 +58,4 @@ class Router extends React.Component {
         )
       }
     }
-    export default Router
+    export default connect(null,{setUserAction}) (Router)

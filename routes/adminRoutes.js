@@ -93,4 +93,9 @@ res.json(2)
     
 
 })
+
+adminRouter.post('/logout', (req, res) => {
+    req.session.destroy()
+    res.json(10)
+})
 module.exports = adminRouter

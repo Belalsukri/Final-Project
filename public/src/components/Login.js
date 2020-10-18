@@ -3,11 +3,22 @@ import PopupModal from './PopupModal'
 
 import {loginPost} from '../services/api'
 import {useHistory} from 'react-router-dom'
+import{setUserAction} from '../actions'
+import {connect} from 'react-redux'
 
 const Login=(props)=>{
+  useEffect(()=>{
+    props.setUserAction(null)
+    emailRef.current.focus()
+  },[])
   
-
+console.log(props);
   const history = useHistory()
+  console.log(history);
+  const emailRef =React.useRef()
+  useEffect(()=>{
+    history.location.state=true
+  },[])
   const intialState = {
     email: '',
     password: '',
@@ -55,8 +66,8 @@ const Login=(props)=>{
           case 1:
             // show admin panel
             
-           
-            history.push('/Admin',myState.email)
+            props.setUserAction(myState.email)
+            history.push('/Admin')
             console.log('should be login');
             break;
         
@@ -83,28 +94,29 @@ const Login=(props)=>{
         title={myState.errorTitle}>
           {myState.errorElement}
         </PopupModal>
-<div class="container register mb-5">
-        <div class="row">
-          <div class="col-md-3 register-left">
+<div className="container register mb-5">
+        <div className="row">
+          <div className="col-md-3 register-left">
             <img src="./img/roboot.png" alt=""/>
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
             
           </div>
-          <div class="col-md-9 register-right">
+          <div className="col-md-9 register-right">
 
-            <div class="tab-content" id="myTabContent">
+            <div className="tab-content" id="myTabContent">
               <div
-                class="tab-pane fade show active"
+                className="tab-pane fade show active"
                 id="home"
                 role="tabpanel"
                 aria-labelledby="home-tab">
-                <h3 class="register-heading">Login</h3>
-                <div class="row register-form">
-                  <div class="col-md-6">
+                <h3 className="register-heading">Login</h3>
+                <div className="row register-form">
+                  <div className="col-md-6">
                     
-                    <div class="form-group">
-                      <input type="email" class="form-control"
+                    <div className="form-group">
+                      <input type="email" className="form-control"
+                      ref ={emailRef}
                        placeholder="Your Email *"
                        required
                        onChange={(e) => {
@@ -117,9 +129,9 @@ const Login=(props)=>{
                     </div>
 
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input type="password" class="form-control"
+                  <div className="col-md-6">
+                    <div className="form-group">
+                      <input type="password" className="form-control"
                        placeholder="Password *"
                        required
                        onChange={(e) => {
@@ -130,7 +142,7 @@ const Login=(props)=>{
                      }}
                        value={myState.password}/>
                     </div>
-                    <a class="text-danger " href="/ForgotPassword"> Forgot Password?</a>
+                    <a className="text-danger " href="/ForgotPassword"> Forgot Password?</a>
                     <button className="btnRegister" onClick={onLoginBtnClick}>Login</button>
                   </div>
                 </div>
@@ -145,4 +157,4 @@ const Login=(props)=>{
 </React.Fragment>
     )
 }
-export default Login
+export default connect(null,{setUserAction})(Login) 

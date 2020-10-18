@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import {createStore} from 'redux'
+import{Provider} from 'react-redux'
 import Router from './components/Router'
-
+import reducers from './reducers'
 const App =()=>{
     return(
         <React.Fragment>   
@@ -16,4 +17,8 @@ const App =()=>{
             </React.Fragment>
     )
 }
-ReactDOM.render(<App/>,document.querySelector('#root'))
+ReactDOM.render( 
+    <Provider store={createStore(reducers)}>
+<App/>
+</Provider>
+,document.querySelector('#root'))

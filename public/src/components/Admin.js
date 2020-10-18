@@ -1,14 +1,15 @@
 
 
 import React from 'react'
-import {Link} from 'react-router-dom'
-
+import {Link,useHistory} from 'react-router-dom'
+import {connect} from 'react-redux'
 import {
   Card, CardDeck
 } from 'reactstrap';
 
 
 const Admin=(props)=> {
+  const history = useHistory()
 
    
   console.log(props);
@@ -18,17 +19,17 @@ const Admin=(props)=> {
     <CardDeck className='col-md-10'>
       <Card className='col-md-12 '>
         <div className='row mt-3'>
-        <section className="slider">
+        <section className="col-md-12">
     <div className="container">
-      <div className="row ">
-        <div className="row col-md-10 mb-5 ml-4 justify-content-center">
-          <h3>Welcome {props.location.state}</h3>
-          <div className='row mt-4 btn btn-primary col-6 radius d-flex justify-content-center'>
-          <Link className='text-white col-4' to="/admin/AddRobot">Add Robots</Link>
+      <div className="row d-flex justify-content-center">
+        <div className="row col-md-8 mb-5 ml-4 justify-content-center">
+          <h3>Welcome {props.user}</h3>
+          <div className=' row mt-4 btn btn-primary col-6 radius d-flex justify-content-center '>
+          <Link className='text-white col-8 ' to="/admin/AddRobot">Add Robots</Link>
           </div >
           <br/>
-         <div className='row mt-4 btn btn-primary col-6 radius d-flex justify-content-center'> 
-         <Link className='text-white col-4' to="/admin/Robots">Robots</Link>
+         <div className='row mt-4 btn btn-primary col-6 radius  justify-content-center'> 
+         <Link className='text-white col-8 ' to="/admin/Robots">Robots</Link>
          </div>
          <br/>
          
@@ -45,4 +46,7 @@ const Admin=(props)=> {
      
     )
 }
-export default Admin
+const mapStateToProps =(state)=>{
+  return{user:state.user}
+}  
+export default connect(mapStateToProps)(Admin) 

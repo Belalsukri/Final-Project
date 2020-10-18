@@ -1,10 +1,18 @@
-import React,{useState} from 'react'
+import React,{useState ,useEffect} from 'react'
 import PopUpModal from './PopupModal'
 import {useHistory} from 'react-router-dom'
 import {AddRobotPost} from '../services/api'
 
  const AddRobot =()=> {
   const history = useHistory()
+  const typeRef =React.useRef()
+  const serialNumberRef =React.useRef()
+  const buttonRef =React.useRef()
+
+
+  useEffect(() => {
+    typeRef.current.focus()
+  }, [])
   const intialState = {
     Type: '',
     SerialNumber: '',
@@ -73,7 +81,16 @@ import {AddRobotPost} from '../services/api'
       entriesError: false
     })
   }
-
+const onFirstInput = (e) =>{
+if (e.key ==='Enter') {
+  serialNumberRef.current.focus()
+}
+}
+const onLastInput = (e) =>{
+  if (e.key ==='Enter') {
+    buttonRef.current.focus()
+  }
+  }
    
         return (
           <React.Fragment>
@@ -105,15 +122,19 @@ import {AddRobotPost} from '../services/api'
                   <div className="col-md-9">
                     
                     <div className="form-group">
-                      <input type="text" className="form-control"  placeholder="Type *"
+                      <input type="text" className="form-control"
+                        placeholder="Type *" ref ={typeRef} onKeyDown={onFirstInput}
                       onChange={(e) => {setMyState({...myState, Type: e.target.value})}} />
                     </div>
+
                     <div className="form-group">
-                      <input type="text" className="form-control"  placeholder="Serial Number *" 
+
+                      <input type="text" className="form-control"
+                      placeholder="Serial Number *" ref={serialNumberRef} onKeyDown={onLastInput}
                       onChange={(e) => {setMyState({...myState, SerialNumber: e.target.value})}}/>
                     </div>
                     <div>
-                    <button className="btnRegister"  onClick={onRegisterBtnClick}>Add</button>
+                    <button ref ={buttonRef} className="btnRegister"  onClick={onRegisterBtnClick}>Add</button>
                     </div>
 
                   </div>

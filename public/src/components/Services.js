@@ -2,34 +2,34 @@ import React from 'react'
 const Services=()=>{
     return(
 <React.Fragment>
-<section class="banner-area relative" id="home">	
-				<div class="overlay overlay-bg"></div>
-				<div class="container">				
-					<div class="row d-flex align-items-center justify-content-center">
-						<div class="about-content col-lg-12">
-							<h1 class="text-white">
+<section className="banner-area relative" id="home">	
+				<div className="overlay overlay-bg"></div>
+				<div className="container">				
+					<div className="row d-flex align-items-center justify-content-center">
+						<div className="about-content col-lg-12">
+							<h1 className="text-white">
 								Services				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="services.html"> Services</a></p>
+							<p className="text-white link-nav"><a href="index.html">Home </a>  <span className="lnr lnr-arrow-right"></span>  <a href="services.html"> Services</a></p>
 						</div>	
 					</div>
 				</div>
 			</section>
 			
-			<section class="offered-service-area section-gap">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-12 pb-40 header-text text-center">
-							<h1 class="pb-10">Our Offered Services to you</h1>
+			<section className="offered-service-area section-gap">
+				<div className="container">
+					<div className="row d-flex justify-content-center">
+						<div className="col-md-12 pb-40 header-text text-center">
+							<h1 className="pb-10">Our Offered Services to you</h1>
 							<p>
 								Who are in extremely love with eco friendly system.
 							</p>
 						</div>
 					</div>							
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-offered-service">
-								<img class="img-fluid" src="img/os1.jpg" alt=""/>
+					<div className="row">
+						<div className="col-lg-4">
+							<div className="single-offered-service">
+								<img className="img-fluid" src="img/os1.jpg" alt=""/>
 								<a href="#">
 									<h4>Drone Architecture</h4>
 								</a>	
@@ -39,9 +39,9 @@ const Services=()=>{
 								
 							</div>
 						</div>
-						<div class="col-lg-4">
-							<div class="single-offered-service">
-								<img class="img-fluid" src="img/os2.jpg" alt=""/>
+						<div className="col-lg-4">
+							<div className="single-offered-service">
+								<img className="img-fluid" src="img/os2.jpg" alt=""/>
 								<a href="#">
 									<h4>Device Robot System</h4>
 								</a>	
@@ -50,9 +50,9 @@ const Services=()=>{
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-4">
-							<div class="single-offered-service">
-								<img class="img-fluid" src="img/os3.jpg" alt=""/>
+						<div className="col-lg-4">
+							<div className="single-offered-service">
+								<img className="img-fluid" src="img/os3.jpg" alt=""/>
 								<a href="#">
 									<h4>Industrial Robot Management</h4>
 								</a>	
@@ -65,21 +65,21 @@ const Services=()=>{
 				</div>	
 			</section>
 			
-			<section class="feature-area section-gap">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-12 pb-40 header-text text-center">
-							<h1 class="pb-10 text-white">Some Features that Made us Unique</h1>
-							<p class="text-white">
+			<section className="feature-area section-gap">
+				<div className="container">
+					<div className="row d-flex justify-content-center">
+						<div className="col-md-12 pb-40 header-text text-center">
+							<h1 className="pb-10 text-white">Some Features that Made us Unique</h1>
+							<p className="text-white">
 								Who are in extremely love with eco friendly system.
 							</p>
 						</div>
 					</div>							
-					<div class="row">
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<a href="#" class="title d-flex flex-row">
-									<span class="lnr lnr-user"></span>
+					<div className="row">
+						<div className="col-lg-4 col-md-6">
+							<div className="single-feature">
+								<a href="#" className="title d-flex flex-row">
+									<span className="lnr lnr-user"></span>
 									<h4>Expert Technicians</h4>
 								</a>
 								<p>
@@ -87,10 +87,10 @@ const Services=()=>{
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<a href="#" class="title d-flex flex-row">
-									<span class="lnr lnr-license"></span>
+						<div className="col-lg-4 col-md-6">
+							<div className="single-feature">
+								<a href="#" className="title d-flex flex-row">
+									<span className="lnr lnr-license"></span>
 									<h4>Professional Service</h4>
 								</a>
 								<p>
@@ -98,10 +98,10 @@ const Services=()=>{
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<a href="#" class="title d-flex flex-row">
-									<span class="lnr lnr-phone"></span>
+						<div className="col-lg-4 col-md-6">
+							<div className="single-feature">
+								<a href="#" className="title d-flex flex-row">
+									<span className="lnr lnr-phone"></span>
 									<h4>Great Support</h4>
 								</a>
 								<p>
@@ -109,10 +109,10 @@ const Services=()=>{
 								</p>
 							</div>
 						</div>						
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<a href="#" class="title d-flex flex-row">
-									<span class="lnr lnr-rocket"></span>
+						<div className="col-lg-4 col-md-6">
+							<div className="single-feature">
+								<a href="#" className="title d-flex flex-row">
+									<span className="lnr lnr-rocket"></span>
 									<h4>Technical Skills</h4>
 								</a>
 								<p>
@@ -120,10 +120,10 @@ const Services=()=>{
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<a href="#" class="title d-flex flex-row">
-									<span class="lnr lnr-diamond"></span>
+						<div className="col-lg-4 col-md-6">
+							<div className="single-feature">
+								<a href="#" className="title d-flex flex-row">
+									<span className="lnr lnr-diamond"></span>
 									<h4>Highly Recomended</h4>
 								</a>
 								<p>
@@ -131,10 +131,10 @@ const Services=()=>{
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-feature">
-								<a href="#" class="title d-flex flex-row">
-									<span class="lnr lnr-bubble"></span>
+						<div className="col-lg-4 col-md-6">
+							<div className="single-feature">
+								<a href="#" className="title d-flex flex-row">
+									<span className="lnr lnr-bubble"></span>
 									<h4>Positive Reviews</h4>
 								</a>
 								<p>
@@ -147,23 +147,23 @@ const Services=()=>{
 				</div>	
 			</section>
 			
-			<section class="brand-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col single-brand">
-							<img class="img-fluid" src="img/l1.png" alt=""/>
+			<section className="brand-area section-gap">
+				<div className="container">
+					<div className="row">
+						<div className="col single-brand">
+							<img className="img-fluid" src="img/l1.png" alt=""/>
 						</div>
-						<div class="col single-brand">
-							<img class="img-fluid" src="img/l2.png" alt=""/>
+						<div className="col single-brand">
+							<img className="img-fluid" src="img/l2.png" alt=""/>
 						</div>
-						<div class="col single-brand">
-							<img class="img-fluid" src="img/l3.png" alt=""/>
+						<div className="col single-brand">
+							<img className="img-fluid" src="img/l3.png" alt=""/>
 						</div>
-						<div class="col single-brand">
-							<img class="img-fluid" src="img/l4.png" alt=""/>
+						<div className="col single-brand">
+							<img className="img-fluid" src="img/l4.png" alt=""/>
 						</div>
-						<div class="col single-brand">
-							<img class="img-fluid" src="img/l5.png" alt=""/>
+						<div className="col single-brand">
+							<img className="img-fluid" src="img/l5.png" alt=""/>
 						</div>
 					</div>
 				</div>	
