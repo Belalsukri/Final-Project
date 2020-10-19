@@ -41,6 +41,8 @@ import Fade from 'react-reveal/Fade';
       }
     })
    }
+   let currentLocation =history.location.pathname
+   console.log(history);
         return (
 			<header   className='nav-color text-white ' >
 			<div className="container main-menu">
@@ -58,19 +60,19 @@ import Fade from 'react-reveal/Fade';
         
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto text-white  " >
-          <NavItem className="navbar-item text-white b-green " active={useLocation().pathname === '/'}>
+          <NavItem className="navbar-item text-white b-green " active={currentLocation === '/'}>
           <NavLink className='text-white ' tag={Link} to="/">Home</NavLink>                     
           </NavItem>
             
-          <NavItem className="navbar-item text-white b-green" active={useLocation().pathname === '/About'}>
+          <NavItem className="navbar-item text-white b-green" active={currentLocation === '/About'}>
           <NavLink className='text-white ' tag={Link} to="/About">ABOUT US</NavLink>                     
           </NavItem>
             
-          <NavItem className="navbar-item text-white b-green" active={useLocation().pathname === '/Services'}>
+          <NavItem className="navbar-item text-white b-green" active={currentLocation === '/Services'}>
           <NavLink className='text-white ' tag={Link} to="/Services">Services</NavLink>                     
           </NavItem>
             
-          <NavItem className="navbar-item text-white b-green" active={useLocation().pathname === '/Contact'}>
+          <NavItem className="navbar-item text-white b-green" active={currentLocation === '/Contact'}>
           <NavLink className='text-white ' tag={Link} to="/Contact">Contact</NavLink>                     
           </NavItem>
           {  props.user  ?
@@ -78,17 +80,17 @@ import Fade from 'react-reveal/Fade';
              <NavItem className="text-white navbar-item b-green"  >
              <NavLink   className='text-white' href="#" onClick={logotBtnClik}>Logout</NavLink>
              </NavItem>
-             <NavItem className="text-white navbar-item b-green"  >
+             <NavItem className="text-white navbar-item b-green" active={currentLocation === '/Admin'} >
              <NavLink  className='text-white ' tag={Link} to="/Admin">Dashboard</NavLink>
              </NavItem>
              </React.Fragment>
                   :
                   <React.Fragment>
-             <NavItem className="navbar-item text-white b-green"  >
+             <NavItem className="navbar-item text-white b-green"  active={currentLocation === '/Login'} >
              <NavLink className='text-white ' tag={Link} to="/Login">Login</NavLink>                     
              </NavItem>
    
-             <NavItem className="navbar-item text-white b-green"  >
+             <NavItem className="navbar-item text-white b-green"  active={currentLocation === '/Register'} >
              <NavLink className='text-white ' tag={Link} to="/Register">Register</NavLink>                     
              </NavItem>
              </React.Fragment>
