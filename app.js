@@ -181,6 +181,26 @@ app.post('/checklogin',(req,res)=>{
     }
 })
 
+app.post('/sender', (req, res) => {   
+    const name = req.body.name
+    const email = req.body.email.trim()
+    const subject = req.body.subject
+    const message = req.body.message
+    //console.log(req.body);
+    if (name && email && subject && message){
+        //dataModule.senderContact(name, email, subject, message).then(() => {
+            emailSender.getMessageContact(name, email, subject, message, 'Feed Back', (ok) => {
+                if (ok) {
+                    res.json(1)
+                } else {
+                    res.json(3)
+                }
+            })
+    } else {
+            res.json(2)
+        }  
+});
+
 app.use('/admin', adminRoutes);
 app.use('/', (req, res) => {
     const html = fs.readFileSync(__dirname + '/public/build/index.html', 'utf-8')

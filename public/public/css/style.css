@@ -229,12 +229,29 @@ flex-wrap: wrap;
 
    .b-green.active {
     top: -4px;
-    background-color: rgb(154, 143, 255);
+    background-color: rgb(115, 139, 250);
     color: #FFFFFF;
     -webkit-box-shadow: 0 4px 0 0 rgb(196, 146, 243);
     -moz-box-shadow: 0 4px 0 0 rgb(198, 154, 240);
     box-shadow: 2px 4px 0 0 rgb(183, 135, 228);
   } 
+   .backgrund{
+    margin-top: -2px;
+    padding: 20px 0;
+    background-image: url(../img/banner-bg.jpg);
+    background-size: cover;
+  } 
+  .colers{
+      
+      color: rgb(245, 244, 250);
+  }
+  .hof{
+      color: rgb(252, 249, 249);
+  }
+  .hof:hover{
+    color:#2f37c7;
+    
+  }
   
 
 

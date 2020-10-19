@@ -9,15 +9,18 @@ import {connect} from 'react-redux'
 const Login=(props)=>{
   useEffect(()=>{
     props.setUserAction(null)
-    emailRef.current.focus()
   },[])
+ 
   
 console.log(props);
   const history = useHistory()
   console.log(history);
   const emailRef =React.useRef()
+  const passwordRef =React.useRef()
+  const buttonRef =React.useRef()
   useEffect(()=>{
     history.location.state=true
+    emailRef.current.focus()
   },[])
   const intialState = {
     email: '',
@@ -85,6 +88,16 @@ console.log(props);
       entriesError: false
     })
   }
+  const onFirstInput = (e) =>{
+    if (e.key ==='Enter') {
+      passwordRef.current.focus()
+    }
+      }
+    const onLastInput = (e) =>{
+      if (e.key ==='Enter') {
+        buttonRef.current.focus()
+      }
+    }
     return(
 <React.Fragment>
 <PopupModal
@@ -116,7 +129,7 @@ console.log(props);
                     
                     <div className="form-group">
                       <input type="email" className="form-control"
-                      ref ={emailRef}
+                      ref ={emailRef} onKeyDown={onFirstInput}
                        placeholder="Your Email *"
                        required
                        onChange={(e) => {
@@ -133,6 +146,7 @@ console.log(props);
                     <div className="form-group">
                       <input type="password" className="form-control"
                        placeholder="Password *"
+                       ref={passwordRef}  onKeyDown={onLastInput}
                        required
                        onChange={(e) => {
                        setMyState({
@@ -143,7 +157,7 @@ console.log(props);
                        value={myState.password}/>
                     </div>
                     <a className="text-danger " href="/ForgotPassword"> Forgot Password?</a>
-                    <button className="btnRegister" onClick={onLoginBtnClick}>Login</button>
+                    <button ref ={buttonRef} className="btnRegister" onClick={onLoginBtnClick}>Login</button>
                   </div>
                 </div>
               </div>

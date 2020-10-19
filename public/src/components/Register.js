@@ -101,7 +101,7 @@ const history =useHistory()
            title="Entries Error">
             {myState.errorCompenent}
         </PopupModal>
-      <div className="container register">
+      <div className="container register mb-5">
         <div className="row">
           <div className="col-md-3 register-left">
             <img src="./img/roboot.png" alt="" />

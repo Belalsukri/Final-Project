@@ -28,6 +28,27 @@ function getEmail( emailUser,messageUsr, subject, callback) {
 
   }
 
+  function getMessageContact(name, emailUser, subject, messageUsr, callback) {  
+    const mailOption ={
+        from: emailUser,
+        name: name,
+        to: 'robotcarnode@gmail.com',
+        subject: subject,
+        text:   messageUsr
+    }
+    transporter.sendMail(mailOption, function (error, info) {
+        if(error){
+            //console.log(error);
+            callback(false);           
+        } else {
+            //console.log(info.response);
+            callback(true);
+        }
+    })
+  }
+
+
   module.exports = { 
     getEmail,
+    getMessageContact
 }

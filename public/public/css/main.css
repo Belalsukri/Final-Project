@@ -916,8 +916,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .genric-btn.primary {
-  color: #fff;
-  background: #8a90ff;
+  color: rgb(37, 37, 37);
+  background: #fefeff;
   border: 1px solid transparent;
 }
 
