@@ -7,7 +7,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
 </head>
 
 <body>
@@ -21,11 +27,10 @@
     <button onclick="action('cam left')">cam left</button>
     <button onclick="action('cam right')">cam right</button>
     <button onclick="disconnect()">disconnect</button> -->
-    <video style="width: 100%; margin: auto;" playsinline autoplay muted></video>
+    <video style="height: 98vh; margin: auto; display: block" playsinline autoplay muted></video>
     <script src="/socket.io/socket.io.js"></script>
 
 
-<video ></video>
 
 
     <script>

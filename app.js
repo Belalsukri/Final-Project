@@ -7,9 +7,10 @@ const cors = require('cors')
 const dataModule = require('./modules/mysqlDataModule')
 const adminRoutes = require('./routes/adminRoutes')
 const emailSender = require('./modules/emailSender')
+const helmet = require('helmet') 
 const app = express()
 
-
+app.use(helmet.frameguard({ action: 'sameorigin' }));
 
 const accountSid = 'AC142a85c283c630555a25344f709519f9';
 const authToken = '586c127e542dc30b52477c9310cc2eb1';
@@ -92,6 +93,10 @@ app.use(fileupload({
 
 app.get('/watcher', (req, res) => {
     if(req.session.user){
+        // Content-Security-Policy: frame-ancestors 'self' https://cw.na1.hgncloud.com
+        // X-Frame-Options: ALLOW-FROM https://cw.na1.hgncloud.com
+        res.setHeader("Content-Security-Policy", "frame-ancestors 'self' https://bogyrobot.coding-school.org");
+        res.setHeader("X-Frame-Options", "ALLOW-FROM https://bogyrobot.coding-school.org");
         res.render('watcher', { iceservers: JSON.stringify(iceToken.iceServers), userid: req.session.user.id})
     } else {
         res.send('error')
