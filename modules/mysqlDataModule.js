@@ -18,13 +18,21 @@ function connect() {
                 resolve()
             }
         } else {
+            // con = mySql.createConnection({
+            //     multipleStatements: true,
+            //     host: 'localhost',
+            //     port: 3306,
+            //     user: 'root',
+            //     password: '1234qweR!',
+            //     database: 'robot_db'
+            // })
             con = mySql.createConnection({
                 multipleStatements: true,
                 host: 'localhost',
                 port: 3306,
-                user: 'root',
-                password: '12345678',
-                database: 'robot_db'
+                user: 'codings2_bogy',
+                password: '!234qweR',
+                database: 'codings2_bogy'
             })
             con.connect(error => {
                 if (error) {
@@ -225,6 +233,35 @@ function ubdatePassword(password,userId,uid) {
         })
     })
 }
+
+const getRobotById = (robotid) => {
+    return new Promise((resolve, reject) => {
+        runQuery(`SELECT * FROM robot WHERE id = ${robotid}`).then(results => {
+            if (results.length) {
+                resolve(results[0])
+            } else {
+                reject(new Error('can not find robot with this Id: ' + robotid))
+            }
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}
+
+const getRobotBySerialNumber = (sn) => {
+    return new Promise((resolve, reject) => {
+        runQuery(`SELECT * FROM robot WHERE serial_number LIKE '${sn}'`).then(results => {
+            if (results.length) {
+                resolve(results[0])
+            } else {
+                reject(new Error('can not find robot with this Serial Number: ' + sn))
+            }
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}
+
 module.exports = {
     registerUser,
     checkUser,
@@ -235,5 +272,7 @@ module.exports = {
     updateRobot,
     checkEmail,
     ubdatePassword,
-    runQuery
+    runQuery,
+    getRobotById,
+    getRobotBySerialNumber
 }

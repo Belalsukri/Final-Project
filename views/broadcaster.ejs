@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>picar broadcaster</title>
+</head>
+
+<body>
+    <video autoplay></video>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+        const videoArea = document.createElement('video')
+        const config = {
+            iceServers: <%-iceservers%>
+        };
+        const peerConnections = {};
+        const socket = io.connect(window.location.origin);
+
+        socket.on("answer", (id, description) => {
+            peerConnections[id].setRemoteDescription(description);
+        });
+
+        socket.on("watcher", id => {
+            const peerConnection = new RTCPeerConnection(config);
+            peerConnections[id] = peerConnection;
+
+            let stream = videoArea.srcObject;
+            stream.getTracks().forEach(track => peerConnection.addTrack(track, stream));
+
+            peerConnection.onicecandidate = event => {
+                if (event.candidate) {
+                    socket.emit("candidate", id, event.candidate);
+                }
+            };
+
+            peerConnection
+                .createOffer()
+                .then(sdp => peerConnection.setLocalDescription(sdp))
+                .then(() => {
+                    socket.emit("offer", id, peerConnection.localDescription);
+                });
+        });
+
+        socket.on("candidate", (id, candidate) => {
+            peerConnections[id].addIceCandidate(new RTCIceCandidate(candidate));
+        });
+
+        socket.on("disconnectPeer", id => {
+            peerConnections[id].close();
+            delete peerConnections[id];
+        });
+
+        window.onunload = window.onbeforeunload = () => {
+            socket.close();
+        };
+
+        navigator.mediaDevices.enumerateDevices().then(deviceInfos => {
+            let videoDeviceId;
+            window.deviceInfos = deviceInfos;
+            for (const deviceInfo of deviceInfos) {
+                if (deviceInfo.kind === "audioinput") {
+                    audioDeviceId = deviceInfo.deviceId
+                } else if (deviceInfo.kind === "videoinput" && deviceInfo.label.indexOf('USB') != -1) {
+                    videoDeviceId = deviceInfo.deviceId
+
+                }
+            }
+            startStream(videoDeviceId);
+
+
+        })
+
+
+        function startStream(videoDeviceId) {
+
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+            const constraints = {
+                audio: false, video:
+                {
+                    // mandatory: {
+                    //     minWidth: 640,
+                    //     maxWidth: 640,
+                    //     maxHeight: 480,
+                    //     minHeight: 360
+
+                    // },
+                    deviceId: videoDeviceId ? { exact: videoDeviceId } : undefined
+                }
+            };
+            navigator.getUserMedia(constraints, (stream) => {
+                {
+                    console.log("success! we have a stream");
+                    // videoArea.src = window.URL.createObjectURL(stream);
+
+                    const mediaStream = new MediaStream(stream);
+                    videoArea.srcObject = mediaStream;
+
+                    videoArea.play();
+                    socket.emit("broadcaster", '<%-userid%>');
+                }
+            }, (error) => {
+                console.log("Error with getUserMedia: ", error);
+            });
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

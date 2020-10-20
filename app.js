@@ -9,9 +9,62 @@ const adminRoutes = require('./routes/adminRoutes')
 const emailSender = require('./modules/emailSender')
 const app = express()
 
+
+
+const accountSid = 'AC142a85c283c630555a25344f709519f9';
+const authToken = '586c127e542dc30b52477c9310cc2eb1';
+const client = require('twilio')(accountSid, authToken);
+
+const port = process.env.PORT || 5000
+const server = app.listen(port, () => {
+    console.log(`App listening on port ${port}!`);
+});
+const io = require('socket.io')(server);
+
+io.sockets.on("error", e => console.log(e));
+io.sockets.on("connection", socket => {
+    socket.on("broadcaster", (userid) => {
+        socket.join(userid)
+        socket.broadcast.emit("broadcaster");
+    });
+    socket.on("watcher", (userid) => {
+        socket.join(userid)
+        socket.broadcast.to(userid).emit("watcher", socket.id);
+        socket.on("command", (command) => {
+            socket.broadcast.to(userid).emit("command", command);
+        });
+    });
+    socket.on("robot", (robotid) => {
+        dataModule.getRobotById(robotid).then(robot => {
+            if(robot && robot.user_id){
+                socket.join(robot.user_id)
+                socket.broadcast.to(robot.user_id).emit("robot", socket.id);
+            } else {
+                socket.disconnect()
+            }
+        })
+    });
+    
+
+    socket.on("offer", (id, message) => {
+        socket.broadcast.to(id).emit("offer", socket.id, message);
+    });
+    socket.on("answer", (id, message) => {
+        socket.broadcast.to(id).emit("answer", socket.id, message);
+    });
+    socket.on("candidate", (id, message) => {
+        socket.broadcast.to(id).emit("candidate", socket.id, message);
+    });
+    socket.on("disconnect", (userid) => {
+        socket.broadcast.to(userid).emit("disconnectPeer", socket.id);
+    });
+});
+
 app.use(express.static(__dirname + '/public/build'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
 app.use(cors())
 const sessionOptions = {
     secret: 'bookStore',
@@ -25,12 +78,46 @@ app.use(fileupload({
     limits: { fileSize: 50 * 1024 * 1024 }
 }))
 
-const port = process.env.PORT || 5000
 
-app.use(function(req, res, next) {
-    res.locals.user = req.session.user;
-    next();
+
+// app.use(function(req, res, next) {
+//     res.locals.user = req.session.user;
+//     next();
+//   });
+
+  let iceToken;
+  client.tokens.create().then(data => {
+    iceToken = data
   });
+
+app.get('/watcher', (req, res) => {
+    if(req.session.user){
+        res.render('watcher', { iceservers: JSON.stringify(iceToken.iceServers), userid: req.session.user.id})
+    } else {
+        res.send('error')
+    }
+})
+  app.get('/broadcaster/:sn', (req, res) => {
+      const SerialNumber = req.params.sn
+      //console.log(token)
+    //const robot = robots.find(robot => robot.sn === req.params.sn)
+    dataModule.getRobotBySerialNumber(SerialNumber).then(robot => {
+        if(robot && robot.user_id){
+            res.render('broadcaster', { iceservers: JSON.stringify(iceToken.iceServers), userid: robot.user_id })
+        }
+        else {
+            res.send('error')
+        }
+    }).catch(error => {
+        res.send(error.message)
+    })
+    
+  })
+
+  app.post('/geticeservers', (req, res) => {
+    res.json(iceToken.iceServers)
+  })
+
 
 app.post('/register', (req, res) => {
     // your post register handler here
@@ -69,7 +156,7 @@ app.post('/login', (req, res) => {
 
         dataModule.checkUser(req.body.email.trim(), req.body.password).then(user => {
             req.session.user = user
-            res.json(1)
+            res.json({id: req.session.user.id, email: req.session.user.email})
         }).catch(error => {
             if (error == 3) {
                 res.json(3)
@@ -96,7 +183,7 @@ app.post('/forgetpassword', (req, res) => {
                 dataModule.runQuery(`UPDATE users SET reset = '${uid}' WHERE id = ${user.id} ;`).then(result => {
                     if (result.affectedRows) {
                         const message = `to reset your password please click the following link\n 
-                            <a href='http://localhost:3000/Changepassword/${uid}'>reset password</a>`
+                            <a href='https://bogyrobot.coding-school.org/Changepassword/${uid}'>reset password</a>`
                         emailSender.getEmail(emailuser, message, 'change password', (ok) => {
                             if (ok) {
                                 res.json(1)
@@ -175,7 +262,7 @@ app.post('/changepassword', (req, res) => {
 
 app.post('/checklogin',(req,res)=>{
     if (req.session.user) {
-        res.json(req.session.user.email)
+        res.json({id: req.session.user.id, email: req.session.user.email})
     }else{
         res.json(10)
     }
@@ -208,6 +295,3 @@ app.use('/', (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}!`);
-});

@@ -66,16 +66,14 @@ console.log(props);
           case 4:
             setMyState({... myState, entriesError: true, errorElement: <p>the email that you used is not exist</p>, errorTitle: 'Email not exist' })
             break;
-          case 1:
+            default:
             // show admin panel
             
-            props.setUserAction(myState.email)
+            props.setUserAction(data)
             history.push('/Admin')
             console.log('should be login');
             break;
         
-          default:
-            break;
         }
       }).catch(error => {
         setMyState({... myState, entriesError: true, errorElement: <p>can not send the data</p>, errorTitle: 'unknown error' })

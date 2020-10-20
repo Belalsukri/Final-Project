@@ -355,3 +355,28 @@ export const updateRobotPost=(name)=>{
             })
         })   
     }
+
+
+    export const getIceServers = () => {
+        
+        return new Promise((resolve, reject) => {
+            fetch('/geticeservers',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then(response => {
+                if (response.status === 200) {
+                    response.json().then(data => {
+                        resolve(data)
+                    }).catch(error => {
+                        reject(error)
+                    })
+                }else{
+                    reject(new Error('can not send data to server. Response number is :'+response.status))
+                }
+            }).catch(error => {
+                reject(error)
+            })
+        })   
+    }

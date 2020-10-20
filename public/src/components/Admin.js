@@ -23,7 +23,7 @@ const Admin=(props)=> {
     <div className="container">
       <div className="row d-flex justify-content-center">
         <div className="row col-md-8 mb-5 ml-4 justify-content-center">
-          <h3>Welcome {props.user}</h3>
+          <h3>Welcome {props.user.email}</h3>
           <div className=' row mt-4 btn btn-primary col-6 radius d-flex justify-content-center '>
           <Link className='text-white col-8 ' to="/admin/AddRobot">Add Robots</Link>
           </div >

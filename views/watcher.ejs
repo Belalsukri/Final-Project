@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- <button onclick="action('forward')">go forward</button>
+    <button onclick="action('back')">go back</button>
+    <button onclick="action('turn forward')">turn forward</button>
+    <button onclick="action('turn left')">turn left</button>
+    <button onclick="action('turn right')">turn right</button>
+    <button onclick="action('cam up')">cam up</button>
+    <button onclick="action('cam down')">cam down</button>
+    <button onclick="action('cam left')">cam left</button>
+    <button onclick="action('cam right')">cam right</button>
+    <button onclick="disconnect()">disconnect</button> -->
+    <video style="width: 100%; margin: auto;" playsinline autoplay muted></video>
+    <script src="/socket.io/socket.io.js"></script>
+
+
+<video ></video>
+
+
+    <script>
+       let peerConnection;
+const config = {
+  iceServers: <%-iceservers%>
+};
+
+const socket = io.connect(window.location.origin);
+const video = document.querySelector("video");
+
+
+socket.on("offer", (id, description) => {
+  peerConnection = new RTCPeerConnection(config);
+  peerConnection
+    .setRemoteDescription(description)
+    .then(() => peerConnection.createAnswer())
+    .then(sdp => peerConnection.setLocalDescription(sdp))
+    .then(() => {
+      socket.emit("answer", id, peerConnection.localDescription);
+    });
+  peerConnection.ontrack = event => {
+    video.srcObject = event.streams[0];
+  };
+  peerConnection.onicecandidate = event => {
+    if (event.candidate) {
+      socket.emit("candidate", id, event.candidate);
+    }
+  };
+});
+
+
+socket.on("candidate", (id, candidate) => {
+  peerConnection
+    .addIceCandidate(new RTCIceCandidate(candidate))
+    .catch(e => console.error(e));
+});
+
+socket.on("connect", () => {
+  socket.emit("watcher", '<%=userid%>');
+});
+
+socket.on("broadcaster", () => {
+  socket.emit("watcher", '<%=userid%>');
+});
+
+socket.on("disconnectPeer", (userid) => {
+  peerConnection.close();
+});
+
+window.onunload = window.onbeforeunload = () => {
+  socket.close();
+};
+
+
+       
+       function action(command){
+        socket.emit("command", command);
+       }
+
+        window.onkeydown = e => {
+            console.log(e.keyCode);
+            switch (e.keyCode) {
+                case 87:
+                    action('forward')
+                    break;
+                case 65:
+                    action('turn left')
+                    break;
+                case 68:
+                    action('turn right')
+                    break;
+                case 83:
+                    action('back')
+                    break;
+                case 38:
+                    action('cam up')
+                    break;
+                case 37:
+                    action('cam left')
+                    break;
+                case 39:
+                    action('cam right')
+                    break;
+                case 40:
+                    action('cam down')
+                    break;
+                case 49:
+                    action('speed 1')
+                    break;
+                case 50:
+                    action('speed 2')
+                    break;
+                case 51:
+                    action('speed 3')
+                    break;
+                case 52:
+                    action('speed 4')
+                    break;
+                case 53:
+                    action('speed 5')
+                    break;
+                case 54:
+                    action('speed 6')
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        window.onkeyup = e => {
+
+            switch (e.keyCode) {
+                case 87:
+                    action('stop')
+                    break;
+                case 65:
+                    action('turn forward')
+                    break;
+                case 68:
+                    action('turn forward')
+                    break;
+                case 83:
+                    action('stop')
+                    break;
+                case 38:
+                    action('cam up')
+                    break;
+                case 37:
+                    action('cam left')
+                    break;
+                case 39:
+                    action('cam right')
+                    break;
+                case 40:
+                    action('cam down')
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
