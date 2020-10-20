@@ -3,40 +3,51 @@ import { connect } from 'react-redux'
 import io from 'socket.io-client';
 
 import { getIceServers } from '../services/api'
-//import StartVideo from './StartVideo'
+
 
 const ControlPanal = (props) => {
 
 
     ///////control car ///////
+    
     const topBtnCar = () => {
-        //action('forward')
-
+        
+      action('forward')
+      
     }
 
     const leftBtnCar = () => {
+        action('turn left')
 
     }
+    const rigghtBtnCar = () => {
+        action('turn right')
+    }
+    const buttomBtnCar = () => {
+        action('back')
+    }
+
+
 
     const centerBtnCar = () => {
         
     }
 
+    
 
-
-
-
+const socket = io(window.location.origin);
+const action = (command) => {
+                console.log(command);
+                socket.emit("command", command);
+            }
 
 
     useEffect(() => {
 
 
         getIceServers().then(data => {
-            const socket = io(window.location.origin);
-            const action = (command) => {
-                console.log(command);
-                socket.emit("command", command);
-            }
+            
+            
             console.log(props.user.id, data, socket);
             // let peerConnection;
             // const config = {
@@ -77,7 +88,7 @@ const ControlPanal = (props) => {
             // });
 
             socket.on("connect", () => {
-                socket.emit("watcher", '10');
+                socket.emit("watcher", props.user.id);
             });
 
             // socket.on("broadcaster", () => {
@@ -92,7 +103,9 @@ const ControlPanal = (props) => {
             window.onunload = window.onbeforeunload = () => {
                 socket.close();
             };
+            
             window.onkeydown = e => {
+                
                 console.log(e.keyCode);
                 switch (e.keyCode) {
                     case 87:
@@ -185,29 +198,25 @@ const ControlPanal = (props) => {
     useEffect(() => {
 
     }, [centerBtnCar])
-    const rigghtBtnCar = () => {
+    
 
-    }
-
-    const buttomBtnCar = () => {
-
-    }
+    
 
     ///////control camera ///////
     const topBtnCamera = () => {
-
+        action('cam up')
     }
 
     const leftBtnCamera = () => {
-
+        action('cam left')
     }
 
     const rightBtnCamera = () => {
-
+        action('cam right')
     }
 
-    const buttomBtnCamera = () => {
-
+    const downBtnCamera = () => {
+        action('cam down')
     }
 
     return (
@@ -259,26 +268,26 @@ const ControlPanal = (props) => {
                         <div className='col-xs-5  divColorleft'>
 
                             <div className='row justify-content-center'>
-                                <button className='top  font' onClick={topBtnCar}>
+                                <button className='top  font' onClick={topBtnCamera}>
                                     <i className="fal fa-arrow-alt-circle-up"></i>
                                 </button>
                             </div>
 
                             <div className='row '>
                                 <div className='  mt-2 mb-2 '>
-                                    <button className='left  font ' onClick={leftBtnCar}>
+                                    <button className='left  font ' onClick={leftBtnCamera}>
                                         <i className="fal fa-arrow-alt-circle-left "></i>
                                     </button>
                                 </div>
 
                                 <div className=' col align-self-end  mt-2 mb-2 '>
-                                    <button className=' right float-right font ml-4' onClick={rigghtBtnCar}>
+                                    <button className=' right float-right font ml-4' onClick={rightBtnCamera}>
                                         <i className="fal fa-arrow-alt-circle-right align-self-end " ></i>
                                     </button>
                                 </div>
                             </div>
                             <div className='row justify-content-center ' >
-                                <button className='buttom font' onClick={buttomBtnCar}>
+                                <button className='buttom font' onClick={downBtnCamera}>
                                     <i className="fal fa-arrow-alt-circle-down" ></i>
                                 </button>
                             </div>
