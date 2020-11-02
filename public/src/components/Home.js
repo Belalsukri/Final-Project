@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react'
 import Bounce from 'react-reveal/Bounce';
+import {Link} from 'react-router-dom'
 
 import Fade from 'react-reveal/Fade';
 import Roll from 'react-reveal/Roll';
@@ -26,7 +27,7 @@ const Home=()=>{
 							<p className="text-white text-uppercase">
 								Everyone wants the innovation through robotics
 							</p>
-							<a href="#" className="primary-btn header-btn text-uppercase">View Details</a>
+							<Link href="/CarRobot" className="primary-btn header-btn text-uppercase">View Details</Link>
 						</div>
 						</Fade>
 						<Bounce right>
@@ -119,8 +120,9 @@ const Home=()=>{
 				<div className="container-fluid">
 					<div className="row align-items-center">
 					<Fade left>	
-						<div className="col-lg-6 home-about-left no-padding">
-							<img className="mx-auto d-block img-fluid" src="img/about-img.png" alt=""/>
+						<div className="col-lg-6 home-about-left no-padding imgShadow">
+						<video className="mx-auto d-block img-fluid video-width "  src="img/robot-move.mp4" autoplay controls></video>
+
 						</div>
 						</Fade>
 						<Fade right>

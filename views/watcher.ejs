@@ -3,9 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <!-- <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"> -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+   
+    
     <title>Document</title>
 <style>
     *{
@@ -13,25 +26,161 @@
         padding: 0;
         box-sizing: border-box;
     }
+    
+      video{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+         
+      }
+      .circle{
+          width: 200px;
+          height: 200px;
+          border: solid black 2px;
+          border-radius: 50%;
+      }
+      
+       
+      
+  
 </style>
 </head>
 
 <body>
-    <!-- <button onclick="action('forward')">go forward</button>
-    <button onclick="action('back')">go back</button>
-    <button onclick="action('turn forward')">turn forward</button>
-    <button onclick="action('turn left')">turn left</button>
-    <button onclick="action('turn right')">turn right</button>
-    <button onclick="action('cam up')">cam up</button>
-    <button onclick="action('cam down')">cam down</button>
-    <button onclick="action('cam left')">cam left</button>
-    <button onclick="action('cam right')">cam right</button>
-    <button onclick="disconnect()">disconnect</button> -->
-    <video style="height: 98vh; margin: auto; display: block" playsinline autoplay muted></video>
+    
+    <video class="col-xs-12" id="video-grid"  playsinline autoplay muted></video>
+    
+
+    <div class='container'>
+        <div class='row justify-content-around  '>
+            <div class=' m-5  col-xs-4  '>
+
+                
+                <div class=' col-xs-4   divColor'>
+
+                    
+                    <!-- sctiom 1 -->
+                     <div   class='row  justify-content-center topbtn'>
+                        <button id='top' class='top font' >
+                            <i class="fal fa-arrow-alt-circle-up"></i>
+                        </button>
+                       
+                    </div> 
+
+                    <!-- //// sctiom 2 -->
+                
+                    <div class='row justify-content-md-center'>
+                       
+                        <div class=' col col-xs-1 ml-2 mr-3 rotleft' >
+                            <button  id="forwardLeft"  class='left  font '>
+                                <i class="fal fa-arrow-alt-circle-left "></i>
+                            </button>
+                        </div>
+                       
+                        
+                        <div  class='col  col-xs-1 ml-4 rotright'>
+                            <button id="forwardright" class='left  font ' >
+                                <i class="fal fa-arrow-alt-circle-right "></i>
+                            </button>
+                        </div> 
+                     </div>  
+                
+                     <!-- ///// sctiom 3 -->
+
+
+                     <div class='row justify-content-md-center'>
+                       
+                        <div class=' col col-xs-1 ml-2 mr-3 mt-3 rotright'>
+                            <button  id="backLeft"  class='left  font '>
+                                <i class="fal fa-arrow-alt-circle-left "></i>
+                            </button>
+                        </div>
+                       
+                        
+                        <div  class='col  col-xs-1 ml-4 mt-3 rotleft'>
+                            <button id="backright" class='left  font ' >
+                                <i class="fal fa-arrow-alt-circle-right "></i>
+                            </button>
+                        </div> 
+                        
+                        
+                     </div>  
+
+                     
+                     <!-- //// sctiom 5-->
+                    <div class='row justify-content-center bottnbtn ' >
+                        <button   id="back" class='buttom font' >
+                            <i class="fal fa-arrow-alt-circle-down" ></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='col-xs-2  clos bt-5'>
+                <button class='font bt-5 ' onclick="disconnect()">
+                     <a class="font" href="/Admin"><i class="far fa-times-circle"></i></a></button>
+            </div>
+
+            <div class='row  col-xs-5 '>
+                <div class='col-xs-4  divColorleft'>
+
+                    <div class='row justify-content-center'>
+                        <button class='top  font' onmousedown="action('cam up')">
+                            <i class="fal fa-arrow-alt-circle-up"></i>
+                        </button>
+                    </div>
+
+                    <div class='row '>
+                        <div class='  mt-2 mb-2 '>
+                            <button class='left  font ' onmousedown="action('cam left')">
+                                <i class="fal fa-arrow-alt-circle-left "></i>
+                            </button>
+                        </div>
+
+                        <div class=' col align-self-end  mt-2 mb-2 '>
+                            <button class=' right float-right font ml-4'onmousedown="action('cam right')">
+                                <i class="fal fa-arrow-alt-circle-right align-self-end " ></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class='row justify-content-center ' >
+                        <button class='buttom font'onmousedown="action('cam down')">
+                            <i class="fal fa-arrow-alt-circle-down" ></i>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container '>
+        <div class='row col-xs-4 justify-content-center btn-s '>
+            <div> <button class='btn-1 font-speed  ' onClick="action('speed 1')">
+                <i class="far fa-circle spidIcon"></i> <span class='number  '>1 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed ' onClick="action('speed 2')">
+                <i class="far fa-circle spidIcon"></i> <span class='number '>2 </span>  </button>
+            </div>
+            <div> <button class='btn-1 font-speed ' onClick="action('speed 3')">
+                <i class="far fa-circle spidIcon"></i> <span class='number '>3 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed ' onClick="action('speed 4')">
+                <i class="far fa-circle spidIcon"></i> <span class='number '>4 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed' onClick="action('speed 5')">
+                <i class="far fa-circle spidIcon"></i> <span class='number '>5 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed' onClick="action('speed 6')">
+                <i class="far fa-circle spidIcon"></i> <span class='number  '>6 </span> </button>
+            </div>
+        </div>
+    </div>
+    
     <script src="/socket.io/socket.io.js"></script>
-
-
-
 
     <script>
        let peerConnection;
@@ -42,6 +191,139 @@ const config = {
 const socket = io.connect(window.location.origin);
 const video = document.querySelector("video");
 
+////top
+document.querySelector('#top').addEventListener('touchstart', function(){
+    action('forward')
+    
+})
+document.querySelector('#top').addEventListener('touchend', function(){
+    action('stop')
+})
+////forwardLeft
+let leftInterval ;
+document.querySelector('#forwardLeft').addEventListener('touchstart', function(){
+    leftInterval=setInterval(()=>{
+        action('turn left')
+ 
+    },5)
+    setTimeout(()=>{
+        action('forward')
+    },20)
+    
+    
+    
+})
+
+document.querySelector('#forwardLeft').addEventListener('touchend', function(){
+    clearInterval(leftInterval)
+    setTimeout(()=>{
+        action('turn forward')
+    },10)
+   
+    action('stop')
+    
+   
+})
+
+
+////forwardright
+let rightInterval ;
+document.querySelector('#forwardright').addEventListener('touchstart', function(){
+    rightInterval=setInterval(()=>{
+        action('turn right')
+ 
+    },5)
+    setTimeout(()=>{
+        action('forward')
+    },20)
+    
+     
+})
+
+document.querySelector('#forwardright').addEventListener('touchend', function(){
+    clearInterval(rightInterval)
+    setTimeout(()=>{
+        action('turn forward')
+    },10)
+   
+    action('stop')
+  
+})
+
+////backLeft
+let leftBackInterval;
+document.querySelector('#backLeft').addEventListener('touchstart', function(){
+    leftBackInterval=setInterval(()=>{
+        action('turn left')
+ 
+    },5)
+    setTimeout(()=>{
+        action('back')
+    },20)
+    
+    
+})
+
+document.querySelector('#backLeft').addEventListener('touchend', function(){
+    clearInterval(leftBackInterval)
+    setTimeout(()=>{
+        action('turn forward')
+    },10)
+   
+    action('stop')
+  
+})
+
+////backright
+let rightBackInterval;
+document.querySelector('#backright').addEventListener('touchstart', function(){
+    rightBackInterval=setInterval(()=>{
+        action('turn right')
+ 
+    },5)
+    setTimeout(()=>{
+        action('back')
+    },20)
+    
+})
+
+document.querySelector('#backright').addEventListener('touchend', function(){
+    clearInterval(rightBackInterval)
+    setTimeout(()=>{
+        action('turn forward')
+    },10)
+   
+    action('stop')
+  
+})
+////back
+
+document.querySelector('#back').addEventListener('touchstart', function(){
+    action('back')
+})
+document.querySelector('#back').addEventListener('touchend', function(){
+    action('stop')
+})
+
+
+
+
+
+// body.requestFullscreen()
+
+// const center =document.querySelector('#center').addEventListener('ontouchmove',(e)=>{
+//     e.preventDefault()
+//     action('forward')
+//     console.log(e.keyCode);
+  
+// })
+onmausemove= function () {
+    
+    myDiv =document.querySelector('#center')
+    myDiv.style.top =event.y +'px';
+    myDiv.style.left =event.x +'px';
+  
+}
 
 socket.on("offer", (id, description) => {
   peerConnection = new RTCPeerConnection(config);
@@ -85,8 +367,6 @@ window.onunload = window.onbeforeunload = () => {
   socket.close();
 };
 
-
-       
        function action(command){
         socket.emit("command", command);
        }
@@ -96,6 +376,7 @@ window.onunload = window.onbeforeunload = () => {
             switch (e.keyCode) {
                 case 87:
                     action('forward')
+                   
                     break;
                 case 65:
                     action('turn left')
@@ -150,6 +431,7 @@ window.onunload = window.onbeforeunload = () => {
                     break;
                 case 65:
                     action('turn forward')
+                    console.log(' forward');
                     break;
                 case 68:
                     action('turn forward')

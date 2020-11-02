@@ -16,51 +16,22 @@ const Services=()=>{
 				</div>
 			</section>
 			
-			<section className="offered-service-area section-gap">
-				<div className="container">
-					<div className="row d-flex justify-content-center">
-						<div className="col-md-12 pb-40 header-text text-center">
-							<h1 className="pb-10">Our Offered Services to you</h1>
+			<section className="home-about-area">
+				<div className="container-fluid">
+					<div className="row align-items-center">
+						<div className="col-lg-6 home-about-left no-padding">
+							<img className="mx-auto d-block img-fluid" src="img/about-img.png" alt=""/>
+						</div>
+						<div className="col-lg-6 home-about-right no-padding">
+							<h1>Robot with real-time camera communication</h1>
+							<h5>
+								We are here to listen from you deliver exellence
+							</h5>
 							<p>
-								Who are in extremely love with eco friendly system.
+							This robot works to facilitate real-time communication wherever you are, for example (monitoring your home from anywhere in the world), this is done through the global internet Network. We have worked on creating a browser to control the robot with the ability to control it via a mobile phone or computer.
 							</p>
+							
 						</div>
-					</div>							
-					<div className="row">
-						<div className="col-lg-4">
-							<div className="single-offered-service">
-								<img className="img-fluid" src="img/os1.jpg" alt=""/>
-								<a href="#">
-									<h4>Drone Architecture</h4>
-								</a>	
-								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct.
-								</p>
-								
-							</div>
-						</div>
-						<div className="col-lg-4">
-							<div className="single-offered-service">
-								<img className="img-fluid" src="img/os2.jpg" alt=""/>
-								<a href="#">
-									<h4>Device Robot System</h4>
-								</a>	
-								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct.
-								</p>
-							</div>
-						</div>
-						<div className="col-lg-4">
-							<div className="single-offered-service">
-								<img className="img-fluid" src="img/os3.jpg" alt=""/>
-								<a href="#">
-									<h4>Industrial Robot Management</h4>
-								</a>	
-								<p>
-									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct.
-								</p>
-							</div>
-						</div>												
 					</div>
 				</div>	
 			</section>
@@ -78,93 +49,41 @@ const Services=()=>{
 					<div className="row">
 						<div className="col-lg-4 col-md-6">
 							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
+								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-user"></span>
 									<h4>Expert Technicians</h4>
 								</a>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									A distinguished team working on designing electronic websites and programming robots. Our developers deliver a test project to completion, demonstrating their skills across ideating, scoping, implementation, and problem-solving.
 								</p>
 							</div>
 						</div>
 						<div className="col-lg-4 col-md-6">
 							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
+								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-license"></span>
 									<h4>Professional Service</h4>
 								</a>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									This chapter summarizes new experiences with React for deploying professional service botnet applications in the real world. This includes a moving robot, a mobile manipulator for general purpose applications, and a self-guided mobile vehicle. 
 								</p>
 							</div>
 						</div>
 						<div className="col-lg-4 col-md-6">
 							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
+								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-phone"></span>
 									<h4>Great Support</h4>
 								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								<p>									
+									Our support associates are always ready to help. Our support, including Live Chat, has high customer satisfaction ratings and fast response times.
+									Access support anytime, directly from your Service Connect Anywhere via web browser.
 								</p>
 							</div>
 						</div>						
-						<div className="col-lg-4 col-md-6">
-							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
-									<span className="lnr lnr-rocket"></span>
-									<h4>Technical Skills</h4>
-								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-6">
-							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
-									<span className="lnr lnr-diamond"></span>
-									<h4>Highly Recomended</h4>
-								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-6">
-							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
-									<span className="lnr lnr-bubble"></span>
-									<h4>Positive Reviews</h4>
-								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>	
+						
+							
 
-					</div>
-				</div>	
-			</section>
-			
-			<section className="brand-area section-gap">
-				<div className="container">
-					<div className="row">
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l1.png" alt=""/>
-						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l2.png" alt=""/>
-						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l3.png" alt=""/>
-						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l4.png" alt=""/>
-						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l5.png" alt=""/>
-						</div>
 					</div>
 				</div>	
 			</section>

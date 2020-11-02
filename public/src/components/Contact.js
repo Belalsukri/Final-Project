@@ -42,8 +42,8 @@ const Contact=()=>{
 <div className="row ml-5">
 
     
-    <div className="col-md-8  mb-5 ml-5">
-        <form id="contact-form" name="contact-form" action="/about" method="POST">
+    <div className="col-md-8  mb-5 ">
+        <form id="contact-form" name="contact-form" >
 
             <div className="row ">
 
@@ -108,7 +108,7 @@ const Contact=()=>{
         <div className="status"></div>
     </div>
    
-    <div className="col-md-3 text-center ml-5  ">
+    <div className="col-md-4 text-center   ">
         <ul className="list-unstyled mb-0 ">
             <li className='hof'><i className="fas fa-map-marker-alt fa-2x  list-inline  "></i>
                 <p className=' '>Friedrich-Frank-Bogen 44</p>
@@ -129,24 +129,24 @@ const Contact=()=>{
 </div>
 <div className="container pt-2 ">
     <div className="row  ">
-        <div className="list-inline col-sm-12 col-md-3  ">
+        <div className="list-inline col-sm-2 col-md-2   ">
             <li>
-                <a href="#" target="_blank" className=" btn-lg colers"><i className="fa fa-linkedin fa-fw "></i> <span className="">Facebook</span></a>
+                <a href="#" target="_blank" className=" btn-lg colers"><i class="fab fa-facebook"></i> <span className="">Facebook</span></a>
             </li>
           </div>
-      <div className="list-inline col-sm-12 col-md-2 ">
+      <div className="list-inline col-sm-2 col-md-2 ">
         <li>
-            <a href="#" target="_blank" className="  btn-lg colers"><i className="fa fa-twitter fa-fw"></i> <span className="network-name">Twitter</span></a>
+            <a href="#" target="_blank" className="  btn-lg colers"> <i className="fa fa-twitter fa-fw"></i> <span className="network-name">Twitter</span></a>
         </li>
       </div>
-      <div className="list-inline col-sm-12 col-md-2 ">
+      <div className="list-inline col-sm-2 col-md-2 ">
         <li>
-            <a href="https://github.com/Belalsukri" target="_blank" className="  btn-lg colers"><i className="fa fa-github fa-fw"></i> <span className="network-name">Github</span></a>
+            <a href="https://github.com/Belalsukri" target="_blank" className="  btn-lg colers"> <i className="fa fa-github fa-fw"></i> <span className="network-name">Github</span></a>
         </li>
       </div>
-      <div className="list-inline col-sm-12 col-md-2  ">
+      <div className="list-inline col-sm-2 col-md-2  ">
         <li>
-            <a href="https://www.linkedin.com/in/thiagoferreir4" target="_blank" className="  btn-lg colers"><i className="fa fa-linkedin fa-fw"></i> <span className="network-name">Linkedin</span></a>
+            <a href="https://www.linkedin.com/in/thiagoferreir4" target="_blank" className="  btn-lg colers"> <i className="fa fa-linkedin fa-fw"></i> <span className="network-name">Linkedin</span></a>
         </li>
       </div>
       

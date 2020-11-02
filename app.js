@@ -99,7 +99,8 @@ app.get('/watcher', (req, res) => {
         res.setHeader("X-Frame-Options", "ALLOW-FROM https://bogyrobot.coding-school.org");
         res.render('watcher', { iceservers: JSON.stringify(iceToken.iceServers), userid: req.session.user.id})
     } else {
-        res.send('error')
+        //res.send('error')
+        res.redirect('/login')
     }
 })
   app.get('/broadcaster/:sn', (req, res) => {

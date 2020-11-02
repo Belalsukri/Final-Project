@@ -85,17 +85,17 @@ confirmModalPayLoad: null
 
     const robotsElement = state.robots.map(robot => {
       return(
-          <div key={robot.id} className="col-md-4 mb-4">
-          <div className="item">
-          <Link className="" to={"/Admin/ControlPanal/"}>
-          <img className="robotimg mb-3" src='../img/os3.jpg' alt="img" />
-          </Link>
+          <div key={robot.id} className="col-sm-12 col-md-6  mb-4">
+          <div className=" col-12  item">
+          <a className="" href={"/watcher"}>
+          <img className=" col-12 robotimg mb-4" src='../img/os3.jpg' alt="img" />
+          </a>
            
             
-            <h3>
-              <Link to={"/Admin/ControlPanal/"+robot.name +'/'+ robot.id}>{robot.name}</Link>
+            <h3 className='d-flex justify-content-center'>
+              <a  href={"/watcher"+robot.name +'/'+ robot.id}>{robot.name}</a>
             </h3>
-            <h6>
+            <h6 className='d-flex justify-content-center'>
               <Link className="btn btn-danger mt-3" to={"/Admin/EditRobot/"+robot.id}>Edit
               </Link>&nbsp;&nbsp;&nbsp;<button className="btn btn-danger mt-3" onClick={()=>{deletBtn(robot.id)}}  >Delete</button>
             </h6>

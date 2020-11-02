@@ -106,11 +106,9 @@
     color: #495057;
 }
 /* ///// style robot card */
-.card-deck{
-    margin-left: 50px;
-}
+
 .robotimg{
-    width: 150px;
+   
     height: 250px;
 }
 
@@ -121,14 +119,7 @@ body{
 .cont{
     background-image: url(../img/banner-bg.jpg);
 }
-.cam {
-    box-shadow: 5px 5px 7px rgba(109, 85, 216, 0.671);
-    border-radius: 8px;
-   height: 400px;
-   padding: 0;
-   
-  
-}
+
 
 .font {
     background:transparent;
@@ -136,13 +127,20 @@ body{
      border-style: none; 
     font-size: 40px;
     border-radius: 50%;
-    
     color: dimgray;
-    
 }
+
+.font:hover{
+    transform: scale(1.1);
+    color: rgb(95, 69, 69);
+}  
 .font:focus{
     outline: none; 
     background:transparent;
+}
+.p{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .font-speed{
     background:transparent;
@@ -150,15 +148,32 @@ body{
      border-style: none; 
     font-size: 30px;
     border-radius: 50%;
-    height: 20px;
     position: relative;
     color: dimgray;
-   
+    line-height: 0;
+    top: 128px;
 }
- .font:hover{
+.font-speed:hover{
     transform: scale(1.1);
-}  
+    color: rgb(95, 69, 69);
+    top: 114px;
+    
+}
+.font-speed:focus{
+    outline: none; 
+    background:transparent;
+}
+.spidIcon{
+    position: relative;
+    top: 142px;
+}
 
+.rotleft{
+    transform: rotate(33deg);
+}
+.rotright{
+    transform: rotate(-33deg);
+}
 .center{
      position: relative;
     bottom:115px ;
@@ -169,25 +184,40 @@ body{
 }
 .fl{
 display: flex;
-margin-right: -15px;
-margin-left: -15px;
+
 flex-wrap: wrap;
 }
-    
-  
-
-
  .divColor{  
-     position: relative;
-   bottom: 200px;
+     position: fixed;
+   bottom: 25px;
+   line-height: 0;
+   left: 100px;
+  
   
    
 }
-.divColorleft{
+.topbtn{
     position: relative;
-    bottom: 200px;
-  
+    top: 8px;
+}
+.bottnbtn{
+    position: relative;
+    bottom: 8px;
+}
+
+.divColorleft{
+    position: fixed;
+    bottom: 25px;
+    line-height: 0;
+    right: 100px;
+    
+    
 } 
+.btn-s{
+    position: absolute;
+    top: 45%;
+    left: 42%;
+}
 .right{
     position: relative;
     left: 12px;
@@ -202,31 +232,22 @@ flex-wrap: wrap;
     right: 38px;
 }
 .btn-1{
-    position: relative;
     width: 45px;
-    bottom: 190px;
-    height: 20px;
-   
-}
-.btn-1:hover{
-    transform: scale(1.1);
    
 }
 
-.btn-1:focus{
-    
-    outline: none; 
-}
 .number{
-    position: relative;
-    bottom: 23px;
+   position: relative;
+  top: 126px;
 }
+/* .clos{
+    position: relative;
+    left: 454px;
+    top: 30px;
+} */
 .radius{
     border-radius: 20px;
 }
-
-
-
    .b-green.active {
     top: -4px;
     background-color: rgb(115, 139, 250);
@@ -235,6 +256,7 @@ flex-wrap: wrap;
     -moz-box-shadow: 0 4px 0 0 rgb(198, 154, 240);
     box-shadow: 2px 4px 0 0 rgb(183, 135, 228);
   } 
+ 
    .backgrund{
     margin-top: -2px;
     padding: 20px 0;
@@ -252,9 +274,184 @@ flex-wrap: wrap;
     color:#2f37c7;
     
   }
+  @media only screen and   (max-width: 1110px) {
+    /* .clos{
+        position: relative;
+        left: 347px;
+        top: 35px;
+    } */
+
+  }
+  @media only screen and   (max-width: 850px) {
+    .divColor{  
+        position: fixed;
+      bottom: 45px;
+      left: 30px;
+      
+   }
+   .divColorleft{
+       position: fixed;
+       bottom: 45px;
+       right: 30px;
+        
+   } 
+    .clos{
+    position: fixed;
+    right: 100px;
+    
+} 
+   
+
+.b-green {
+    margin-left: 30px;
+}
+    
+  }
+
+  @media only screen and  (max-width: 765px) {
+    .register-right{
+    
+        border-top-left-radius: 0% 0%;
+        border-bottom-left-radius: 0% 0%;
+    }
+     .divColor{  
+        position: fixed;
+      bottom: 0px;
+      left: 10px;
+      
+   } 
+    .divColorleft{
+       position: fixed;
+       bottom: 10px;     
+       right: 25px;
+       
+   }  
+   .btn-s{
+    position: initial;
+  
+}
+.number{
+    position: relative;
+   top: 126px;
+ }
+ /* .clos{
+    position: relative;
+    left: 240px;
+    top: 35px;
+} */
+/* .font-speed{
+    top: 320px;
+} */
+  }
+
+  @media only screen and  (max-width: 420px) {
+    .divColor{  
+        position: fixed;
+      bottom: 0px;
+      left: 10px;
+      
+   }
+   .divColorleft{
+       position: fixed;
+       bottom: 0px;     
+       right: 10px;
+       
+   } 
+
   
 
+.b-green {
+    margin-left: 30px;
+}
+.register-right{
+    
+    border-top-left-radius: 0% 0%;
+    border-bottom-left-radius: 0% 0%;
+}
+/* .clos{
+    position: relative;
+    left: 210px;
+    top: 35px;
+} */
+  }
+
+  .hightImg{
+    height: 500px;
+}
+.imgSadow{
+    box-shadow: -6px 7px 12px rgb(153, 149, 235);
+}
+.fontName{
+    font-weight:700;
+    font-size: 22px;
+    font-style: italic;
+    text-shadow: 2px 1px 6px rgb(0, 0, 0);
+}
+.fontName1{
+    font-weight:700;
+    font-size: 45px;
+    font-style: italic;
+    text-shadow: 0px 4px 4px rgb(4, 4, 4);
+}
+.card {
+    margin: 10px 10px;
+  }
+  /* Flip Cards CSS */
+  .card-container {
+    display: grid;
+    perspective: 700px;
+  }
+  .card-flip {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: “frontAndBack”;
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+  }
+  .card-flip div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  .front {
+    grid-area: frontAndBack;
+  }
+  .back {
+      background-image: url(../img/banner-bg.jpg);
+      background-size: cover;
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+  }
+  .card-container:hover .card-flip {
+    transform: rotateY(180deg);
+  }
+  .imgHeight{
+      height: 350px;
+  }
+  .fontShadow1{
+      text-shadow: -2px 3px 1px rgb(121, 121, 124);
+  }
+  .fontShadow{
+    text-shadow: -1px 1px 1px rgb(121, 121, 124);
+}
+.imgShadow{
+    box-shadow: -3px 3px 10px 0px  rgb(144, 143, 243);
+}
+.mar{
+    margin-top: 60px;
+}
+.mar1{
+    margin-top: 220px;
+}
+.video-width{
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: inset -1px 2px 4px 12px rgb(1, 1, 1);
+}
+.imgHome{
+    height: 180px;
+}
 
 
-
+  
+  
 

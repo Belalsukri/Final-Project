@@ -34,7 +34,7 @@ const EditRobot = () =>{
         <div className="container register mb-5">
         <div className="row">
           <div className="col-md-3 register-left">
-            <img src="./img/roboot.png" alt=""/>
+           
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
             

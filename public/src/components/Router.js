@@ -19,6 +19,7 @@ import CheckLogin from './CheckLogin'
 import {checkLogintPost} from '../services/api'
 import {connect} from 'react-redux'
 import{setUserAction} from '../actions'
+import CarRobot from './CarRobot'
 class Router extends React.Component {
 
   componentDidMount(){
@@ -36,21 +37,22 @@ class Router extends React.Component {
                   <NavBar/>
                   
                   <Switch>
-                  <Route path='/'exact component={Home}/>
+                  <Route path='/' exact component={Home}/>
                   
-                  <Route path='/About'exact component= {About} />
-                  <Route path='/Services'exact component= {Services}/>
-                  <Route path='/Login'exact component={()=><CheckLogin><Login/></CheckLogin>}/>
-                  <Route path='/ForgotPassword'exact component={ForgotPassword}/>
-                  <Route path='/Changepassword/:id'exact component={Changepassword}/>
-                  <Route path='/Register'exact component={Register}/>
-                  <Route path='/Contact'exact component= {Contact} />
+                  <Route path='/About' exact component={About} />
+                  <Route path='/Services' exact component={Services}/>
+                  <Route path='/Login' exact component={Login}/>
+                  <Route path='/ForgotPassword' exact component={ForgotPassword}/>
+                  <Route path='/Changepassword/:id' exact component={Changepassword}/>
+                  <Route path='/Register' exact component={Register}/>
+                  <Route path='/Contact' exact component= {Contact} />
+                  <Route path='/CarRobot' exact component= {CarRobot} />
                   
-                  <Route path='/Admin'exact component= {()=><CheckLogin><Admin/></CheckLogin>}/>
-                  <Route path='/Admin/Robots'exact component={()=><CheckLogin><Robots/></CheckLogin>} />
-                  <Route path='/Admin/AddRobot'exact component={()=><CheckLogin><AddRobot/></CheckLogin>}/>
-                  <Route path='/Admin/ControlPanal'exact component={()=><CheckLogin><ControlPanal/></CheckLogin>}/>
-                  <Route path='/Admin/EditRobot/:id'exact component={()=><CheckLogin><EditRobot/></CheckLogin>}/>
+                  <Route path='/Admin' exact component= {()=><CheckLogin><Admin/></CheckLogin>}/>
+                  <Route path='/Admin/Robots' exact component={()=><CheckLogin><Robots/></CheckLogin>} />
+                  <Route path='/Admin/AddRobot' exact component={()=><CheckLogin><AddRobot/></CheckLogin>}/>
+                  <Route path='/Admin/ControlPanal' exact component={()=><CheckLogin><ControlPanal/></CheckLogin>}/>
+                  <Route path='/Admin/EditRobot/:id' exact component={()=><CheckLogin><EditRobot/></CheckLogin>}/>
                   </Switch>
                   <Footer/>
               

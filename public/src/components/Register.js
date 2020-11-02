@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import validator from 'validator'
 import { Link, useHistory  } from 'react-router-dom'
 import { registerPost } from '../services/api'
 import PopupModal from './PopupModal'
 
 const Register = () => {
-
+  const fnameRef =React.useRef()
+  const lnameRef =React.useRef()
+  const emailRef =React.useRef()
+  const passwordlRef =React.useRef()
+  const confirmpassword =React.useRef()
+  const buttonRef =React.useRef()
+  
   const initialState = {
     fname: '',
     lname: '',
@@ -17,6 +23,9 @@ const Register = () => {
     showErrorModal: false,
     resultElement: null
   }
+  useEffect(() => {
+    fnameRef.current.focus()
+  }, [])
   const [myState, setMyState] = useState(initialState)
 const history =useHistory()
   const onRegisterBtnClick = (e) => {
@@ -93,6 +102,37 @@ const history =useHistory()
       showErrorModal: false
     })
 }
+
+const onFnameInput = (e) =>{
+  if (e.key ==='Enter') {
+    lnameRef.current.focus()
+  }
+}
+
+const onlnameRefInput = (e) =>{
+  if (e.key ==='Enter') {
+    emailRef.current.focus()
+  }
+}
+
+const onemailRefInput = (e) =>{
+  if (e.key ==='Enter') {
+    passwordlRef.current.focus()
+  }
+}
+
+const onpasswordlRefInput = (e) =>{
+  if (e.key ==='Enter') {
+    confirmpassword.current.focus()
+  }
+}
+
+const onconfirmpasswordInput = (e) =>{
+  if (e.key ==='Enter') {
+    buttonRef.current.focus()
+  }
+}
+
   return (
     <React.Fragment>
        <PopupModal show={myState.showErrorModal}
@@ -104,7 +144,7 @@ const history =useHistory()
       <div className="container register mb-5">
         <div className="row">
           <div className="col-md-3 register-left">
-            <img src="./img/roboot.png" alt="" />
+            
             <h3>Welcome</h3>
             <p>You are 30 seconds away from earning your own money!</p>
 
@@ -122,25 +162,39 @@ const history =useHistory()
                 <div className="row register-form">
                   <div className="col-md-6">
                     <div className="form-group">
-                      <input type="text" className="form-control" onChange={(e) => { setMyState({ ...myState, fname: e.target.value }) }} placeholder="First Name *" />
+                      <input type="text" className="form-control" 
+                       onChange={(e) => { setMyState({ ...myState, fname: e.target.value }) }}
+                       ref ={fnameRef} onKeyDown={onFnameInput}
+                        placeholder="First Name *" />
                     </div>
                     <div className="form-group">
-                      <input type="text" className="form-control" onChange={(e) => { setMyState({ ...myState, lname: e.target.value }) }} placeholder="Last Name *" />
+                      <input type="text" className="form-control"
+                       onChange={(e) => { setMyState({ ...myState, lname: e.target.value }) }}
+                       ref ={lnameRef} onKeyDown={onlnameRefInput}
+                        placeholder="Last Name *" />
                     </div>
                     <div className="form-group">
-                      <input type="email" className="form-control" onChange={(e) => { setMyState({ ...myState, email: e.target.value }) }} placeholder="Your Email *" />
+                      <input type="email" className="form-control"
+                       onChange={(e) => { setMyState({ ...myState, email: e.target.value }) }}
+                       ref ={emailRef} onKeyDown={onemailRefInput}
+                        placeholder="Your Email *" />
                     </div>
 
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
-                      <input type="password" className="form-control" onChange={(e) => { setMyState({ ...myState, password: e.target.value }) }} placeholder="Password *" />
+                      <input type="password" className="form-control"
+                       onChange={(e) => { setMyState({ ...myState, password: e.target.value }) }}
+                       ref ={passwordlRef} onKeyDown={onpasswordlRefInput}
+                        placeholder="Password *" />
                     </div>
                     <div className="form-group">
                       <input
                         type="password"
                         className="form-control"
                         onChange={(e) => { setMyState({ ...myState, confirmpassword: e.target.value }) }}
+                        
+                        ref ={confirmpassword} onKeyDown={onconfirmpasswordInput}
                         placeholder="Confirm Password *"
                       />
                     </div>
@@ -161,7 +215,7 @@ const history =useHistory()
                         </label>
                       </div>
                     </div>
-                    <button className="btnRegister" onClick={onRegisterBtnClick}>Register</button>
+                    <button ref ={buttonRef} className="btnRegister" onClick={onRegisterBtnClick}>Register</button>
                     {/* <input type="submit"  value="Register"/> */}
                   </div>
                 </div>

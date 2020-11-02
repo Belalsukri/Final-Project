@@ -1,0 +1,4 @@
+*robot-move.mp4 filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*img/robot-move.mp4 filter=lfs diff=lfs merge=lfs -text
+img/robot-move.mp4 filter=lfs diff=lfs merge=lfs -text

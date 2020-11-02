@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+   
+    
+    <title>Document</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+      video{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+         
+      }
+      .circle{
+          width: 200px;
+          height: 200px;
+          border: solid black 2px;
+          border-radius: 50%;
+      }
+      /* #center{
+            display: block;
+            margin: auto;
+            position: relative;
+            top: 72.5px;
+      } */
+      
+  
+</style>
+</head>
+
+<body>
+    <!-- <button onclick="action('forward')">go forward</button>
+    <button onclick="action('back')">go back</button>
+    <button onclick="action('turn forward')">turn forward</button>
+    <button onclick="action('turn left')">turn left</button>
+    <button onclick="action('turn right')">turn right</button>
+    <button onclick="action('cam up')">cam up</button>
+    <button onclick="action('cam down')">cam down</button>
+    <button onclick="action('cam left')">cam left</button>
+    <button onclick="action('cam right')">cam right</button>
+    <button onclick="disconnect()">disconnect</button> -->
+    <video class="col-xs-12" id="video-grid"  playsinline autoplay muted></video>
+    
+
+    <div class='container'>
+        <div class='row justify-content-around  '>
+            <div class='row  m-5  col-xs-5 '>
+                <div class=' col-xs-4   divColor'>
+                    
+                     <div   class='row  justify-content-center'>
+                        <button id='top' class='top font' >
+                            <i class="fal fa-arrow-alt-circle-up"></i>
+                        </button>
+                       
+                    </div> 
+                    
+                     <div class='row '>
+                        <div class='  col-xs-1  ml-5'>
+                            <button   id='left' class='left  font '>
+                                <i class="fal fa-arrow-alt-circle-left "></i>
+                            </button>
+                        </div>
+                        <!-- <div class="circle">   -->
+                            <div  class='col-xs-1 '>
+                                <button id="center" class='font  ' >
+                                    <i class="fas fa-dot-circle " ontouchmove="myFunction(event)"></i>
+                                </button>
+                            </div>
+                        <!-- </div> -->
+                        <div  class='  col-xs-1  mr-5'>
+                            <button id='right' class='left  font ' >
+                                <i class="fal fa-arrow-alt-circle-right "></i>
+                            </button>
+                        </div> 
+                        
+                     </div>
+                    <div class='row justify-content-center ' >
+                        <button   id="back" class='buttom font' >
+                            <i class="fal fa-arrow-alt-circle-down" ></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class='col-xs-2 '>
+                <button class='center font ' onclick="disconnect()">
+                    <i class="fab fa-youtube"></i> </button>
+            </div>
+
+            <div class='row  col-xs-5 '>
+                <div class='col-xs-4  divColorleft'>
+
+                    <div class='row justify-content-center'>
+                        <button class='top  font' onmousedown="action('cam up')">
+                            <i class="fal fa-arrow-alt-circle-up"></i>
+                        </button>
+                    </div>
+
+                    <div class='row '>
+                        <div class='  mt-2 mb-2 '>
+                            <button class='left  font ' onmousedown="action('cam left')">
+                                <i class="fal fa-arrow-alt-circle-left "></i>
+                            </button>
+                        </div>
+
+                        <div class=' col align-self-end  mt-2 mb-2 '>
+                            <button class=' right float-right font ml-4'onmousedown="action('cam right')">
+                                <i class="fal fa-arrow-alt-circle-right align-self-end " ></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class='row justify-content-center ' >
+                        <button class='buttom font'onmousedown="action('cam down')">
+                            <i class="fal fa-arrow-alt-circle-down" ></i>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container '>
+        <div class='row col-xs-4 justify-content-center btn-s '>
+            <div> <button class='btn-1 font-speed  ' onClick="action('speed 1')">
+                <i class="far fa-circle font-speed"></i> <span class='number  '>1 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed ' onClick="action('speed 2')">
+                <i class="far fa-circle font-speed"></i> <span class='number '>2 </span>  </button>
+            </div>
+            <div> <button class='btn-1 font-speed ' onClick="action('speed 3')">
+                <i class="far fa-circle font-speed"></i> <span class='number '>3 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed ' onClick="action('speed 4')">
+                <i class="far fa-circle font-speed"></i> <span class='number '>4 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed' onClick="action('speed 5')">
+                <i class="far fa-circle font-speed"></i> <span class='number '>5 </span> </button>
+            </div>
+            <div> <button class='btn-1 font-speed' onClick="action('speed 6')">
+                <i class="far fa-circle font-speed"></i> <span class='number  '>6 </span> </button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+       let peerConnection;
+const config = {
+  iceServers: <%-iceservers%>
+};
+
+const socket = io.connect(window.location.origin);
+const video = document.querySelector("video");
+document.querySelector('#top').addEventListener('touchstart', function(){
+    action('forward')
+    
+})
+document.querySelector('#top').addEventListener('touchend', function(){
+    action('stop')
+})
+
+document.querySelector('#left').addEventListener('touchstart', function(){
+    action('turn left')
+    action('forward')
+})
+// document.querySelector('#left').addEventListener('touchstart', function(){
+    
+//     action('forward')
+// })
+document.querySelector('#left').addEventListener('touchend', function(){
+    action('turn right') 
+    action('stop')
+    
+})
+
+document.querySelector('#right').addEventListener('touchstart', function(){
+    action('turn right') 
+    action('forward')
+})
+// document.querySelector('#right').addEventListener('touchstart', function(){
+    
+//     action('forward')
+// })
+document.querySelector('#right').addEventListener('touchend', function(){
+    action('turn left')
+    action('stop')
+  
+})
+
+document.querySelector('#back').addEventListener('touchstart', function(){
+    action('back')
+})
+document.querySelector('#back').addEventListener('touchend', function(){
+    action('stop')
+})
+
+
+
+
+
+// body.requestFullscreen()
+
+// const center =document.querySelector('#center').addEventListener('ontouchmove',(e)=>{
+//     e.preventDefault()
+//     action('forward')
+//     console.log(e.keyCode);
+  
+// })
+// function myFunction(event) {
+//     console.log(event);
+//   var x = event.touches[0].clientX;
+//   var y = event.touches[0].clientY;
+//   document.getElementById("demo").innerHTML = x + ", " + y;
+//   if(x === 197 && y === 265) {
+//      action('forward')
+//   } if(x === 306 && y === 349){
+//     action('turn right')
+//   } if(x === 108 && y === 349) {
+//    action ('turn left')
+//   } if (x === 197 && y === 447){
+//     action ('back')
+//   } else {
+//       action('stop')
+//   }
+// }
+
+socket.on("offer", (id, description) => {
+  peerConnection = new RTCPeerConnection(config);
+  peerConnection
+    .setRemoteDescription(description)
+    .then(() => peerConnection.createAnswer())
+    .then(sdp => peerConnection.setLocalDescription(sdp))
+    .then(() => {
+      socket.emit("answer", id, peerConnection.localDescription);
+    });
+  peerConnection.ontrack = event => {
+    video.srcObject = event.streams[0];
+  };
+  peerConnection.onicecandidate = event => {
+    if (event.candidate) {
+      socket.emit("candidate", id, event.candidate);
+    }
+  };
+});
+
+
+socket.on("candidate", (id, candidate) => {
+  peerConnection
+    .addIceCandidate(new RTCIceCandidate(candidate))
+    .catch(e => console.error(e));
+});
+
+socket.on("connect", () => {
+  socket.emit("watcher", '<%=userid%>');
+});
+
+socket.on("broadcaster", () => {
+  socket.emit("watcher", '<%=userid%>');
+});
+
+socket.on("disconnectPeer", (userid) => {
+  peerConnection.close();
+});
+
+window.onunload = window.onbeforeunload = () => {
+  socket.close();
+};
+
+       function action(command){
+        socket.emit("command", command);
+       }
+
+        window.onkeydown = e => {
+            console.log(e.keyCode);
+            switch (e.keyCode) {
+                case 87:
+                    action('forward')
+                   
+                    break;
+                case 65:
+                    action('turn left')
+                    break;
+                case 68:
+                    action('turn right')
+                    break;
+                case 83:
+                    action('back')
+                    break;
+                case 38:
+                    action('cam up')
+                    break;
+                case 37:
+                    action('cam left')
+                    break;
+                case 39:
+                    action('cam right')
+                    break;
+                case 40:
+                    action('cam down')
+                    break;
+                case 49:
+                    action('speed 1')
+                    break;
+                case 50:
+                    action('speed 2')
+                    break;
+                case 51:
+                    action('speed 3')
+                    break;
+                case 52:
+                    action('speed 4')
+                    break;
+                case 53:
+                    action('speed 5')
+                    break;
+                case 54:
+                    action('speed 6')
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        window.onkeyup = e => {
+
+            switch (e.keyCode) {
+                case 87:
+                    action('stop')
+                    break;
+                case 65:
+                    action('turn forward')
+                    console.log(' forward');
+                    break;
+                case 68:
+                    action('turn forward')
+                    break;
+                case 83:
+                    action('stop')
+                    break;
+                case 38:
+                    action('cam up')
+                    break;
+                case 37:
+                    action('cam left')
+                    break;
+                case 39:
+                    action('cam right')
+                    break;
+                case 40:
+                    action('cam down')
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

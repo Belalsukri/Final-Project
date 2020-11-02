@@ -9,9 +9,10 @@ const CheckLogin=props =>{
         checkLogintPost().then(data=>{
             console.log(data);
             if (data ===10) {
-                history.push('/login')  
+                history.push('/Login')  
             } else {
                 props.setUserAction(data)
+                
             }
         })
     },[])

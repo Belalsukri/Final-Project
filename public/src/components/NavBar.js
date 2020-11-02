@@ -42,14 +42,14 @@ import Fade from 'react-reveal/Fade';
     })
    }
    let currentLocation =history.location.pathname
-   console.log(history);
+  // console.log(history);
         return (
 			<header   className='nav-color text-white ' >
 			<div className="container main-menu">
 				<div className="row align-items-center justify-content-between d-flex">
         <Fade top big>
           <div >
-					<a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+					<a href="/"><img src="img/logo.png" alt="" title="" /></a>
 				  </div>
           </Fade>
           <Rotate top left>
@@ -96,23 +96,7 @@ import Fade from 'react-reveal/Fade';
              </React.Fragment>
             }            
          
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret className='text-white'>
-                blog
-              </DropdownToggle >
-              <DropdownMenu right >
-                <DropdownItem >
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            
           </Nav>
          
         </Collapse>
