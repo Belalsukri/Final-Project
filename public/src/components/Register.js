@@ -4,6 +4,7 @@ import { Link, useHistory  } from 'react-router-dom'
 import { registerPost } from '../services/api'
 import PopupModal from './PopupModal'
 
+
 const Register = () => {
   const fnameRef =React.useRef()
   const lnameRef =React.useRef()
@@ -141,12 +142,25 @@ const onconfirmpasswordInput = (e) =>{
            title="Entries Error">
             {myState.errorCompenent}
         </PopupModal>
+        <section className="banner-area relative" id="home">	
+				<div className="overlay overlay-bg"></div>
+				<div className="container">				
+					<div className="row d-flex align-items-center justify-content-center">
+						<div className="about-content-1 col-lg-12">
+							<h1 className="text-white">
+								Register				
+							</h1>	
+							<p className="text-white link-nav"><Link to="/">Home </Link>  <span className="lnr lnr-arrow-right"></span>  <Link to="/Register"> Register</Link></p>
+						</div>	
+					</div>
+				</div>
+			</section>
       <div className="container register mb-5">
         <div className="row">
           <div className="col-md-3 register-left">
             
             <h3>Welcome</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
+            <p>You can go to login through this login buttom</p>
 
             <Link className="btnReg " to='/Login' > Login </Link><br />
           </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 const Services=()=>{
     return(
 <React.Fragment>
@@ -6,21 +7,21 @@ const Services=()=>{
 				<div className="overlay overlay-bg"></div>
 				<div className="container">				
 					<div className="row d-flex align-items-center justify-content-center">
-						<div className="about-content col-lg-12">
+						<div className="about-content-1 col-lg-12">
 							<h1 className="text-white">
 								Services				
 							</h1>	
-							<p className="text-white link-nav"><a href="index.html">Home </a>  <span className="lnr lnr-arrow-right"></span>  <a href="services.html"> Services</a></p>
+							<p className="text-white link-nav"><Link to="/">Home </Link>  <span className="lnr lnr-arrow-right"></span>  <Link to="/Services"> Services</Link></p>
 						</div>	
 					</div>
 				</div>
 			</section>
 			
-			<section className="home-about-area">
+			<section className="home-about-area mt-3 ">
 				<div className="container-fluid">
 					<div className="row align-items-center">
-						<div className="col-lg-6 home-about-left no-padding">
-							<img className="mx-auto d-block img-fluid" src="img/about-img.png" alt=""/>
+						<div className="col-lg-6 home-about-left no-padding feature-area mb-3">
+							<img className="mx-auto d-block img-fluid mb-3" src="img/car4-removebg-preview.png" alt=""/>
 						</div>
 						<div className="col-lg-6 home-about-right no-padding">
 							<h1>Robot with real-time camera communication</h1>
@@ -36,7 +37,7 @@ const Services=()=>{
 				</div>	
 			</section>
 			
-			<section className="feature-area section-gap">
+			<section className="feature-area section-gap colr mb-3">
 				<div className="container">
 					<div className="row d-flex justify-content-center">
 						<div className="col-md-12 pb-40 header-text text-center">
@@ -76,7 +77,7 @@ const Services=()=>{
 									<h4>Great Support</h4>
 								</a>
 								<p>									
-									Our support associates are always ready to help. Our support, including Live Chat, has high customer satisfaction ratings and fast response times.
+									Our support associates are always ready to help. Our support, has high customer satisfaction ratings and fast response times.
 									Access support anytime, directly from your Service Connect Anywhere via web browser.
 								</p>
 							</div>

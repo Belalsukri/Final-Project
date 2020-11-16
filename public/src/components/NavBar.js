@@ -49,11 +49,11 @@ import Fade from 'react-reveal/Fade';
 				<div className="row align-items-center justify-content-between d-flex">
         <Fade top big>
           <div >
-					<a href="/"><img src="img/logo.png" alt="" title="" /></a>
+					<img className='logo-1 ml-2' src="img/logo-thinking-removebg-preview (2).png" alt="" title="" /><span className='text-white sp'>Bogy Robot</span>
 				  </div>
           </Fade>
           <Rotate top left>
-				  <Navbar className='nav-color text-white button'  fixed=''  expand="md" >
+				  <Navbar className=' text-white button'  fixed=''  expand="md" >
           
          
        <NavbarToggler  id='mobile-nav-toggle' onClick={toggle}> <i className='lnr lnr-menu'></i></NavbarToggler>
@@ -61,37 +61,37 @@ import Fade from 'react-reveal/Fade';
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto text-white  " >
           <NavItem className="navbar-item text-white b-green " active={currentLocation === '/'}>
-          <NavLink className='text-white ' tag={Link} to="/">Home</NavLink>                     
+          <NavLink className='text-white text-center h5' tag={Link} to="/">Home</NavLink>                     
           </NavItem>
             
           <NavItem className="navbar-item text-white b-green" active={currentLocation === '/About'}>
-          <NavLink className='text-white ' tag={Link} to="/About">ABOUT US</NavLink>                     
+          <NavLink className='text-white text-center h5' tag={Link} to="/About">ABOUT US</NavLink>                     
           </NavItem>
             
           <NavItem className="navbar-item text-white b-green" active={currentLocation === '/Services'}>
-          <NavLink className='text-white ' tag={Link} to="/Services">Services</NavLink>                     
+          <NavLink className='text-white text-center h5' tag={Link} to="/Services">Services</NavLink>                     
           </NavItem>
             
           <NavItem className="navbar-item text-white b-green" active={currentLocation === '/Contact'}>
-          <NavLink className='text-white ' tag={Link} to="/Contact">Contact</NavLink>                     
+          <NavLink className='text-white text-center h5' tag={Link} to="/Contact">Contact</NavLink>                     
           </NavItem>
           {  props.user  ?
              <React.Fragment  >
              <NavItem className="text-white navbar-item b-green"  >
-             <NavLink   className='text-white' href="#" onClick={logotBtnClik}>Logout</NavLink>
+             <NavLink   className='text-white text-center h5' href="#" onClick={logotBtnClik}>Logout</NavLink>
              </NavItem>
              <NavItem className="text-white navbar-item b-green" active={currentLocation === '/Admin'} >
-             <NavLink  className='text-white ' tag={Link} to="/Admin">Dashboard</NavLink>
+             <NavLink  className='text-white text-center h5' tag={Link} to="/Admin">Dashboard</NavLink>
              </NavItem>
              </React.Fragment>
                   :
                   <React.Fragment>
              <NavItem className="navbar-item text-white b-green"  active={currentLocation === '/Login'} >
-             <NavLink className='text-white ' tag={Link} to="/Login">Login</NavLink>                     
+             <NavLink className='text-white text-center h5' tag={Link} to="/Login">Login</NavLink>                     
              </NavItem>
    
              <NavItem className="navbar-item text-white b-green"  active={currentLocation === '/Register'} >
-             <NavLink className='text-white ' tag={Link} to="/Register">Register</NavLink>                     
+             <NavLink className='text-white text-center h5' tag={Link} to="/Register">Register</NavLink>                     
              </NavItem>
              </React.Fragment>
             }            

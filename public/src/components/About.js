@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 const About=()=>{
     return(
         <React.Fragment>
@@ -7,16 +7,16 @@ const About=()=>{
         <div className="overlay overlay-bg"></div>
         <div className="container">
           <div className="row d-flex align-items-center justify-content-center">
-            <div className="about-content col-lg-12">
+            <div className="about-content-1 col-lg-12">
               <h1 className="text-white">
                 About Us
               </h1>
               <p className="text-white link-nav">
-                <a href="index.html">Home
-                </a>
+                <Link to="/">Home
+                </Link>
                 <span className="lnr lnr-arrow-right"></span>
-                <a href="about.html">
-                  About Us</a>
+                <Link to="/About">
+                  About Us</Link>
               </p>
             </div>
           </div>
@@ -26,77 +26,119 @@ const About=()=>{
 		
 		<section>
 		
-<div>hhhhhhh</div>
-    <div className='mar1'>
+
+    <div className='mar'>
     </div>
     
       <h1 className='card-title text-center mt-5 font-italic fontShadow1 bg-dark text-white'>Our Team</h1>
-      <div className='container  '>
+      <div className='container clint mt-3'>
   <div className='row '>
           {/* <!-- Card 1 --> */}
-          <div className='col-lg-4 card-container col-md-4'>
-      <div className='card-flip col-12 col-md-12 '>
+    <div className='pad col-md-12 col-lg-4 card-container   '>
+      <div className='pad card-flip  col-12 col-md-12 '>
         <div className='card front imgShadow'>
           <img className='card-img-top img-fluid imgHeight ' src="/img/belal.jpeg"/>
-          <div className='card-block'>
+          <div className='card-block textHeight'>
             <h4 className='card-title text-center mt-3 font-italic fontShadow '>Belal Sukari</h4>
           </div>
         </div>
-        <div className='card back imgShadow'>
+        <div className='card back imgShadow align-items-center'>
           <div className='card-header font-weight-bold text-center mt-3 font-italic'>
           <h3 className='card-title fontShadow1 text-white'>Web Developer</h3>
           </div>
-          <div className='card-block '>
-            <p className='card-text font-italic text-white text-center'>With supporting text below as a natural lead-in to additional content.</p>
+          <div className='card-block text '>
+          <h4 class="card-text font-italic text-dark text-center">Programming Languages</h4>
+            <br></br>
+            <ul class="card-text font-weight-bold font-italic text-dark text-center">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>SCSS</li>
+              <li>JAVASCRIPT</li>
+              <li>NODE JS</li>
+              <li>JQUERY</li>
+              <li>BOOTSTRAP</li>
+              <li>REACT</li>
+              <li>MongoDB</li>
+              <li>MySQL</li>
+            </ul>
+
           </div>
         </div>
       </div>
     </div>
-    <div className='col-lg-4  card-container col-md-4'>
-      <div className='card-flip col-12 col-md-12'>
+    <div className=' pad col-md-12 col-lg-4  card-container  '>
+      <div className='pad card-flip  col-12 col-md-12'>
         <div className='card front imgShadow'>
           <img className='card-img-top img-fluid imgHeight ' src='img/wael.jpeg'/>
-          <div className='card-block'>
+          <div className='card-block textHeight'>
             <h4 className='card-title text-center mt-3 font-italic fontShadow'>Wael Ibrahim</h4>
           </div>
         </div>
-        <div className='card back imgShadow'>
+        <div className='card back imgShadow align-items-center'>
         <div className='card-header font-weight-bold text-center mt-3 font-italic'>
           <h3 className='card-title font-italic fontShadow1 text-white'>Web Developer</h3>
           </div>
-          <div className='card-block'>
-            <p className='card-text font-italic text-white text-center'>With supporting text below as a natural lead-in to additional content.</p>
+          <div className='card-block text'>
+          <h4 class="card-text font-italic text-dark text-center">Programming Languages</h4>
+            <br></br>
+            <ul class="card-text font-weight-bold font-italic text-dark text-center">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>SCSS</li>
+              <li>JAVASCRIPT</li>
+              <li>NODE JS</li>
+              <li>JQUERY</li>
+              <li>BOOTSTRAP</li>
+              <li>REACT</li>
+              <li>MongoDB</li>
+              <li>MySQL</li>
+            </ul>
+
           </div>
         </div>
       </div>
     </div>
-    <div className='col-lg-4  card-container col-md-4'>
-      <div className='card-flip col-12 col-md-12'>
-        <div className='card front imgShadow'>
+    <div className=' pad col-md-12 col-lg-4  card-container  '>
+      <div className='pad card-flip col-12 col-md-12'>
+        <div className='card front imgShadow '>
           <img className='card-img-top img-fluid imgHeight' src='img/abdulrahman.jpeg'/>
-          <div className='card-block'>
+          <div className='card-block textHeight'>
             <h4 className='card-title text-center mt-3 font-italic fontShadow'>Abdulrahman Ibrahim</h4>
           </div>
         </div>
-        <div className='card back imgShadow'>
+        <div className='card back imgShadow align-items-center'>
         <div className='card-header font-weight-bold text-center mt-3 font-italic'>
-          <h4 className='card-title font-italic fontShadow1 text-white'>Web Developer</h4>
+          <h3 className='card-title font-italic fontShadow1 text-white'>Web Developer</h3>
           </div>
-          <div className='card-block'>
-            <p className='card-text font-italic text-white text-center'>With supporting text below as a natural lead-in to additional content.</p>
+          <div className='card-block text'>
+          <h4 class="card-text font-italic text-dark text-center">Programming Languages</h4>
+            <br></br>
+            <ul class="card-text font-weight-bold font-italic text-dark text-center">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>SCSS</li>
+              <li>JAVASCRIPT</li>
+              <li>NODE JS</li>
+              <li>JQUERY</li>
+              <li>BOOTSTRAP</li>
+              <li>REACT</li>
+              <li>MongoDB</li>
+              <li>MySQL</li>
+            </ul>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div className='container  mt-5'>
+<div className='container clint1 mt-5'>
   <div className='row align-items-center justify-content-center'>
-  <div className='col-lg-4  card-container col-md-6'>
-<div className=' col-12 col-md-12'>
+  <div className='col-lg-4 pad1 card-container col-sm-6'>
+<div className=' col-12 pad1 col-md-12'>
   <div className='card front imgShadow '>
     <img className='card-img-top img-fluid imgHeight' src='img/ahmad.jpeg'/>
-    <div className='card-block'>
+    <div className='card-block '>
       <h4 className='card-title text-center mt-3 font-italic fontShadow'>Ahmad Osman</h4>
     </div>
   </div>
@@ -107,20 +149,17 @@ const About=()=>{
             <h3 className='card-title text-center mt-3 font-italic fontShadow '>Ahmad Osman</h3>
             </div>
               <p className='card-text font-italic text-dark'>
-              <h4 className='card-title text-center font-italic fontShadow1 text-white'>Project Maneger</h4>
-                One of the things that makes Boston Dynamics unique is the ambition to build
-                dynamically stable, legged machines. Marc Raibert began tackling this problem
+              <h4 className='card-title text-center font-italic fontShadow text-dark'>Project Manager</h4>
+                
               </p>
             </div>
   </div>
 </div>
-    <div className='mar1'>
+    <div className='mar'>
     </div>
     <h1 className='card-title text-center mt-5 font-italic fontShadow1 bg-dark text-white'>About Our Company</h1>
 
-
 		</section>
-
 
 		{/* /////// */}
       <section className="about-video-area section-gap">
@@ -199,8 +238,6 @@ const About=()=>{
           </div>
         </div>
       </section>
-
-      
         <div className="container">
           
             <div className="col-lg-12 about-video-left">
@@ -214,20 +251,7 @@ const About=()=>{
               </p>
 
             </div>
-
-          
         </div>
-      
-
-      
-
-      
-        
-    
-
-      
-
-      
         <div className="container">
           
             <div className="col-lg-12 about-video-left">
@@ -243,15 +267,8 @@ const About=()=>{
 			  <br></br><br></br>
 
             </div>
-
-          
         </div>
-     
-
-    </React.Fragment>
-
-        
-        
+    </React.Fragment> 
         )
     }
     export default About

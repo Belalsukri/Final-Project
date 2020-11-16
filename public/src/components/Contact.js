@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import validator from 'validator'
 import {senderPost} from '../services/api'
+import {Link,useHistory} from 'react-router-dom'
 const Contact=()=>{
     const initialState = {
         name: '',
@@ -10,7 +11,7 @@ const Contact=()=>{
     }
     
       const [myState, setMyState] = useState(initialState)
-    
+      const history =useHistory()
       const onSenderBtnClick = (e) => {
         e.preventDefault()
         if(myState.name === '' || myState.email.trim() === '' || myState.subject === '' || myState.message === '' || !validator.isEmail(myState.email.trim())) {
@@ -26,20 +27,36 @@ const Contact=()=>{
         } else {
           senderPost(myState.name, myState.email, myState.subject, myState.message).then(data => {
             console.log(data);
+            
           })
+          history.push('/')
         }
       }
     
 
     return(
 <React.Fragment>
-<section className=" backgrund">
+<section className="banner-area relative" id="home">	
+				<div className="overlay overlay-bg"></div>
+				<div className="container">				
+					<div className="row d-flex align-items-center justify-content-center">
+						<div className="about-content-1 col-lg-12">
+							<h1 className="text-white">
+                            Contact us				
+							</h1>	
+							<p className="text-white link-nav"><Link to="/">Home </Link>  <span className="lnr lnr-arrow-right"></span>  <Link to="/Contact"> Contact us</Link></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+
+<section className=" feature-area mt-5">
 <div className='container mt-4 mb-5'> 
-<h1 className="h1-responsive text-white text-center  mt-3 mb-3">Contact us</h1>
+<h1 className="h1-responsive text-white text-center   mb-5">Contact us</h1>
 
 <h4 className="text-center w-responsive text-white mx-auto mb-4 col-md 8">Do you have any Quistion ? Please don’t hesitate, to contact us directly. Our team will be in touch within a few hours to help you..</h4>
 
-<div className="row ml-5">
+<div className="row ">
 
     
     <div className="col-md-8  mb-5 ">
@@ -136,7 +153,7 @@ const Contact=()=>{
           </div>
       <div className="list-inline col-sm-2 col-md-2 ">
         <li>
-            <a href="#" target="_blank" className="  btn-lg colers"> <i className="fa fa-twitter fa-fw"></i> <span className="network-name">Twitter</span></a>
+            <a href="https://youtu.be/f10B0nnDNqo" target="_blank" className="  btn-lg colers"> <i className="fab fa-youtube"></i> <span className="network-name">YouTube</span></a>
         </li>
       </div>
       <div className="list-inline col-sm-2 col-md-2 ">

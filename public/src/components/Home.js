@@ -1,9 +1,13 @@
 import React,{useEffect} from 'react'
 import Bounce from 'react-reveal/Bounce';
 import {Link} from 'react-router-dom'
+import Iframe from 'react-iframe'
+import ReactPlayer from 'react-player'
 
+import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import Roll from 'react-reveal/Roll';
+import Slide from 'react-reveal/Slide';
 
 const Home=()=>{
 	useEffect(()=>{
@@ -18,21 +22,16 @@ const Home=()=>{
 					<Fade left>
 						<div className="banner-content col-lg-6 col-md-6">
 						
-							<h1>
-								Improved <br/>
-								Production level <br/>
-								with Robotics			
+							<h1 className='text-white text-uppercase'>
+							A better future    <br/>
+							and faster production  <br/>
+							with smart robots		
 							</h1>
-							
-							<p className="text-white text-uppercase">
-								Everyone wants the innovation through robotics
-							</p>
-							<Link href="/CarRobot" className="primary-btn header-btn text-uppercase">View Details</Link>
 						</div>
 						</Fade>
 						<Bounce right>
 						<div className="banner-img col-lg-6 col-md-6">
-							<img className="img-fluid" src="img/banner-img.png" alt=""/>
+							<img className="img-fluid" src="img/robot-run-removebg-preview.png" alt=""/>
 						</div>	
          
        				    </Bounce>
@@ -57,14 +56,15 @@ const Home=()=>{
 						<div className="col-lg-3 col-md-6">
 							<div className="single-product">
 								<div className="thumb">
-									<img src="img/p1.png" alt=""/>
+								<img class="img-fluid imgHome" src="img/car1.png" alt="Responsive image"/>
+
 								</div>
 								<div className="details">
 									<h4>The Upper Eye</h4>
 									<p>
 										Who are in extremely love with eco friendly system.
 									</p>
-									<a href="#" className="primary-btn text-uppercase">View Details</a>
+									<a href="/CarRobot" className="primary-btn text-uppercase">View Details</a>
 								</div>
 							</div>
 						</div>	
@@ -120,134 +120,92 @@ const Home=()=>{
 				<div className="container-fluid">
 					<div className="row align-items-center">
 					<Fade left>	
-						<div className="col-lg-6 home-about-left no-padding imgShadow">
-						<video className="mx-auto d-block img-fluid video-width "  src="img/robot-move.mp4" autoplay controls></video>
-
+						<div className="col-lg-6 home-about-left no-padding ">
+						<ReactPlayer
+						className="mx-auto d-block img-fluid video-width "
+						controls={true}
+    					playbackRate = {1}
+						url="https://youtu.be/f10B0nnDNqo"/>
 						</div>
 						</Fade>
 						<Fade right>
-						<div className="col-lg-6 home-about-right no-padding">
+						<div className="col-lg-5 home-about-right no-padding ml-4">
 							<h1>Globally Connected <br/>
 							by Large Network</h1>
 							<h5>
 								We are here to listen from you deliver exellence
 							</h5>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+							<h6>Trailer for our car robot:</h6>
+							In this video, we are making a smaller video to show you how can a man control a 
+							robot car through a mobil phone and how can do this easily
+
 							</p>
-							<a className="primary-btn text-uppercase" href="#">Get Details</a>
+							
 						</div>
 						</Fade>
 					</div>
 				</div>	
 			</section>
-            <section className="about-video-area section-gap">
-				<div className="container">
-					<div className="row align-items-center">
-					<Roll left>  
-						<div className="col-lg-6 about-video-left">
-							<h6 className="text-uppercase">Brand new app to blow your mind</h6>
-							<h1>
-								We’ve made a life <br/>
-								that will change you 
-							</h1>
-							<p>
-								<span>We are here to listen from you deliver exellence</span>
-							</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed doeiusmo d tempor incididunt ut labore et dolore magna aliqua.
-							</p>
-							<a className="primary-btn" href="#">Get Started Now</a>
-						</div>
-						</Roll>
-						<Roll right>
-						<div className="col-lg-6 about-video-right justify-content-center align-items-center d-flex relative">
-							<div className="overlay overlay-bg"></div>
-							<a className="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img className="img-fluid mx-auto" src="img/play-btn.png" alt=""/></a>
-						</div>
-						</Roll>
-					</div>
-				</div>	
-			</section>
+            
+			<div className='mar1'></div>
 
-
-            <section className="feature-area section-gap">
+            <section className="feature-area section-gap colr ">
 				<div className="container">
 					<div className="row d-flex justify-content-center">
+					<Zoom bottom> 
 						<div className="col-md-12 pb-40 header-text text-center">
 							<h1 className="pb-10 text-white">Some Features that Made us Unique</h1>
 							<p className="text-white">
 								Who are in extremely love with eco friendly system.
 							</p>
 						</div>
+						</Zoom>
 					</div>							
 					<div className="row">
+					<Slide bottom big>
 						<div className="col-lg-4 col-md-6">
 							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
+								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-user"></span>
+									
 									<h4>Expert Technicians</h4>
+									
 								</a>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									A distinguished team working on designing electronic websites and programming robots. Our developers deliver a test project to completion, demonstrating their skills across ideating, scoping, implementation, and problem-solving.
 								</p>
 							</div>
 						</div>
+						</Slide>
+						<Slide left big> 
 						<div className="col-lg-4 col-md-6">
 							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
+								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-license"></span>
 									<h4>Professional Service</h4>
 								</a>
 								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+									This chapter summarizes new experiences with React for deploying professional service botnet applications in the real world. This includes a moving robot, a mobile manipulator for general purpose applications, and a self-guided mobile vehicle. 
 								</p>
 							</div>
 						</div>
+						</Slide>
+						<Slide top big>
 						<div className="col-lg-4 col-md-6">
 							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
+								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-phone"></span>
 									<h4>Great Support</h4>
 								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								<p>									
+									Our support associates are always ready to help. Our support, including Live Chat, has high customer satisfaction ratings and fast response times.
+									Access support anytime, directly from your Service Connect Anywhere via web browser.
 								</p>
 							</div>
 						</div>						
-						<div className="col-lg-4 col-md-6">
-							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
-									<span className="lnr lnr-rocket"></span>
-									<h4>Technical Skills</h4>
-								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-6">
-							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
-									<span className="lnr lnr-diamond"></span>
-									<h4>Highly Recomended</h4>
-								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-6">
-							<div className="single-feature">
-								<a href="#" className="title d-flex flex-row">
-									<span className="lnr lnr-bubble"></span>
-									<h4>Positive Reviews</h4>
-								</a>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-								</p>
-							</div>
-						</div>	
+						</Slide>
+							
 
 					</div>
 				</div>	
@@ -255,23 +213,53 @@ const Home=()=>{
 
 
            <section className="brand-area pt-120">
-				<div className="container">
-					<div className="row align-items-center">
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l1.png" alt=""/>
+				<div className="container ">
+					<div className="row  align-items-center ">
+					<div className="col-2 col-sm-1  single-brand col-lg-1 ml-5">
+							
 						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l2.png" alt=""/>
+						<div className="col-4 col-sm-2 single-brand ">
+							<img className="img-fluid w-i" src="img/html5-removebg-preview.png" alt=""/>
 						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l3.png" alt=""/>
+						<div className="col-4  col-sm-2 single-brand">
+							<img className="w-d img-fluid w-i" src="img/css-removebg-preview.png" alt=""/>
 						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l4.png" alt=""/>
+						<div className="col-4 col-sm-2 single-brand">
+							<img className="img-fluid w-i" src="img/scss-removebg-preview.png" alt=""/>
 						</div>
-						<div className="col single-brand">
-							<img className="img-fluid" src="img/l5.png" alt=""/>
+						<div className="col-4 col-sm-2 single-brand">
+							<img className="img-fluid w-i" src="img/Javascript-removebg-preview.png" alt=""/>
 						</div>
+						<div className="col-4 col-sm-2  single-brand">
+							<img className="img-fluid w-i" src="img/jquery-removebg-preview.png" alt=""/>
+						</div>
+						
+						
+
+					
+						
+						<div className="col-2 col-sm-1  single-brand col-lg-1 ml-5">
+							
+						</div>
+						
+						<div className="col-4 col-sm-2  single-brand">
+							<img className="img-fluid w-i" src="img/node-removebg-preview.png" alt=""/>
+						</div>
+						<div className="col-4 col-sm-2 single-brand">
+							<img className="img-fluid w-i" src="img/mongo-db-removebg-preview.png" alt=""/>
+						</div>
+						<div className="col-4 col-sm-2 single-brand">
+							<img className="img-fluid w-i" src="img/mysql-removebg-preview.png" alt=""/>
+						</div>
+						<div className="col-4 col-sm-2 single-brand">
+							<img className="img-fluid w-i" src="img/react-removebg-preview.png" alt=""/>
+						</div>
+						
+						<div className="col-4 col-sm-2 single-brand">
+							<img className="img-fluid w-i" src="img/bootsrap-removebg-preview.png" alt=""/>
+						</div>
+						
+
 					</div>
 				</div>	
 			</section>
@@ -281,44 +269,41 @@ const Home=()=>{
 				<div className="container">
 					<div className="row d-flex justify-content-center">
 						<div className="col-md-12 pb-40 header-text text-center">
-							<h1 className="pb-10">Latest News from our Blog</h1>
-							<p>
-								Who are in extremely love with eco friendly system.
-							</p>
+							<h1 className="pb-10">Internet of Robotic Things – Robotics & Intelligence Evolving to Make the New Era
+</h1>
+							
 						</div>
 					</div>						
 					<div className="row">
-						<div className="col-lg-6 col-md-6 blog-left">
-							<div className="thumb">
-								<img className="img-fluid" src="img/b1.jpg" alt=""/>
-							</div>
-							<div className="detais">
-								<ul className="tags">
-									<li><a href="#">Travel</a></li>
-									<li><a href="#">Life Style</a></li>
-								</ul>
-								<a href="#"><h4>Portable latest Fashion for young women</h4></a>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
-								</p>
-								<p className="date">31st January, 2018</p>
-							</div>
-						</div>
+						
 						<div className="col-lg-6 col-md-6 blog-right">
 							<div className="thumb">
-								<img className="img-fluid" src="img/b2.jpg" alt=""/>
+								<img className="img-fluid" src="img/IoT.jpg" alt=""/>
 							</div>
 							<div className="detais">
-								<ul className="tags">
-									<li><a href="#">Travel</a></li>
-									<li><a href="#">Life Style</a></li>
-								</ul>
-								<a href="#"><h4>Portable latest Fashion for young women</h4></a>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+								<br/>
+								<p className='mb-5'>
+								Robot can be integrated as an entity in the Internet of Things (IoT) infrastructure thereby enabling
+								 connections between different entities using diverse communication protocols
+
 								</p>
-								<p className="date">31st January, 2018</p>
+								
 							</div>							
+						</div>
+						<div className="col-lg-6 col-md-6 blog-left">
+							<div className="thumb">
+								<img className="img-fluid" src="img/Blog-post-image-800x340.jpg" alt=""/>
+							</div>
+							<div className="detais">
+								<br/>
+								<p>
+								Gartner Survey Reveals 47% of Organizations Will Increase Investments in IoT Despite the Impact of COVID-19
+								By 2023, One-Third of Companies That Have Implemented IoT Will Also Have Implemented AI in Conjunction With
+								 at Least One IoT Project.
+
+								</p>
+								
+							</div>
 						</div>
 					</div>
 				</div>	

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PopupModal from './PopupModal'
+import {Link} from 'react-router-dom'
 
 import { loginPost } from '../services/api'
 import { useHistory } from 'react-router-dom'
@@ -104,12 +105,26 @@ const Login = (props) => {
         title={myState.errorTitle}>
         {myState.errorElement}
       </PopupModal>
+      <section className="banner-area relative" id="home">	
+				<div className="overlay overlay-bg"></div>
+				<div className="container">				
+					<div className="row d-flex align-items-center justify-content-center">
+						<div className="about-content-1 col-lg-12">
+							<h1 className="text-white">
+								Login				
+							</h1>	
+							<p className="text-white link-nav"><Link to="/">Home </Link>  <span className="lnr lnr-arrow-right"></span>  <Link to="/Login">Login</Link></p>
+						</div>	
+					</div>
+				</div>
+			</section>
       <div className="container register mb-5">
         <div className="row">
           <div className="col-md-3 register-left">
 
             <h3>Welcome</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
+            <p>If you are not registered yet you can cklick register buttom</p>
+            <Link className="btnReg " to='/Register' > Register </Link><br />
 
           </div>
           <div className="col-md-9 register-right">

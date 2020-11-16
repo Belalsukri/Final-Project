@@ -88,7 +88,7 @@ confirmModalPayLoad: null
           <div key={robot.id} className="col-sm-12 col-md-6  mb-4">
           <div className=" col-12  item">
           <a className="" href={"/watcher"}>
-          <img className=" col-12 robotimg mb-4" src='../img/os3.jpg' alt="img" />
+          <img className=" col-12 robotimg mb-4" src='../img/car2.png' alt="img" />
           </a>
            
             

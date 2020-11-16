@@ -49,8 +49,7 @@
     padding: 10%;
     margin-top: 10%;
 }
-.btnReg{
-    
+.btnReg{ 
     margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
@@ -106,21 +105,18 @@
     color: #495057;
 }
 /* ///// style robot card */
-
 .robotimg{
-   
+   border: solid;
     height: 250px;
 }
 
 /* /////// */
 body{
-    background-color: rgba(188, 205, 255, 0.678);
+    background-color: rgba(139, 198, 250, 0.207);
 }
 .cont{
     background-image: url(../img/banner-bg.jpg);
 }
-
-
 .font {
     background:transparent;
     opacity: .9;
@@ -129,7 +125,6 @@ body{
     border-radius: 50%;
     color: dimgray;
 }
-
 .font:hover{
     transform: scale(1.1);
     color: rgb(95, 69, 69);
@@ -157,7 +152,6 @@ body{
     transform: scale(1.1);
     color: rgb(95, 69, 69);
     top: 114px;
-    
 }
 .font-speed:focus{
     outline: none; 
@@ -167,7 +161,6 @@ body{
     position: relative;
     top: 142px;
 }
-
 .rotleft{
     transform: rotate(33deg);
 }
@@ -184,17 +177,14 @@ body{
 }
 .fl{
 display: flex;
-
 flex-wrap: wrap;
 }
  .divColor{  
-     position: fixed;
+display: none;
+   position: fixed;
    bottom: 25px;
    line-height: 0;
-   left: 100px;
-  
-  
-   
+   left: 100px;  
 }
 .topbtn{
     position: relative;
@@ -204,14 +194,11 @@ flex-wrap: wrap;
     position: relative;
     bottom: 8px;
 }
-
 .divColorleft{
     position: fixed;
     bottom: 25px;
     line-height: 0;
-    right: 100px;
-    
-    
+    right: 100px;  
 } 
 .btn-s{
     position: absolute;
@@ -233,9 +220,17 @@ flex-wrap: wrap;
 }
 .btn-1{
     width: 45px;
-   
 }
-
+.logo-1{
+    width: 140px;
+    height: 70px;
+}
+.sp{
+    font-family: 'Shojumaru', cursive;
+    position: relative;
+    bottom: 15px;
+    right: 40px;
+}
 .number{
    position: relative;
   top: 126px;
@@ -249,22 +244,20 @@ flex-wrap: wrap;
     border-radius: 20px;
 }
    .b-green.active {
+    border-radius: 10px;
     top: -4px;
-    background-color: rgb(115, 139, 250);
+    background-color: rgb(45, 99, 195);
     color: #FFFFFF;
-    -webkit-box-shadow: 0 4px 0 0 rgb(196, 146, 243);
-    -moz-box-shadow: 0 4px 0 0 rgb(198, 154, 240);
-    box-shadow: 2px 4px 0 0 rgb(183, 135, 228);
+    -webkit-box-shadow: 0 4px 0 0 rgb(39, 148, 217);
+    -moz-box-shadow: 0 4px 0 0 rgb(39, 148, 217);
+    box-shadow: 2px 4px 0 0 rgb(39, 148, 217);
   } 
- 
    .backgrund{
-    margin-top: -2px;
-    padding: 20px 0;
-    background-image: url(../img/banner-bg.jpg);
+    margin-top: -25px; 
+    background-image: url(../img/blue-gradient.jpg);
     background-size: cover;
   } 
-  .colers{
-      
+  .colers{ 
       color: rgb(245, 244, 250);
   }
   .hof{
@@ -272,45 +265,34 @@ flex-wrap: wrap;
   }
   .hof:hover{
     color:#2f37c7;
-    
   }
-  @media only screen and   (max-width: 1110px) {
-    /* .clos{
-        position: relative;
-        left: 347px;
-        top: 35px;
-    } */
-
+  @media only screen and   (max-width: 1024px) {
+    .divColor{  
+        display: block;
+   }
   }
   @media only screen and   (max-width: 850px) {
     .divColor{  
         position: fixed;
       bottom: 45px;
       left: 30px;
-      
+      display: block;
    }
    .divColorleft{
        position: fixed;
        bottom: 45px;
-       right: 30px;
-        
+       right: 30px;  
    } 
     .clos{
     position: fixed;
-    right: 100px;
-    
+    right: 100px;  
 } 
-   
-
 .b-green {
     margin-left: 30px;
-}
-    
+} 
   }
-
-  @media only screen and  (max-width: 765px) {
+  @media only screen and  (max-width: 765px) {   
     .register-right{
-    
         border-top-left-radius: 0% 0%;
         border-bottom-left-radius: 0% 0%;
     }
@@ -318,17 +300,15 @@ flex-wrap: wrap;
         position: fixed;
       bottom: 0px;
       left: 10px;
-      
+      display: block;
    } 
     .divColorleft{
        position: fixed;
        bottom: 10px;     
-       right: 25px;
-       
+       right: 25px; 
    }  
    .btn-s{
     position: initial;
-  
 }
 .number{
     position: relative;
@@ -343,28 +323,24 @@ flex-wrap: wrap;
     top: 320px;
 } */
   }
-
   @media only screen and  (max-width: 420px) {
+      *{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+      }
     .divColor{  
         position: fixed;
       bottom: 0px;
       left: 10px;
-      
+      display: block;
    }
    .divColorleft{
        position: fixed;
        bottom: 0px;     
-       right: 10px;
-       
+       right: 10px; 
    } 
-
-  
-
-.b-green {
-    margin-left: 30px;
-}
 .register-right{
-    
     border-top-left-radius: 0% 0%;
     border-bottom-left-radius: 0% 0%;
 }
@@ -416,11 +392,15 @@ flex-wrap: wrap;
     grid-area: frontAndBack;
   }
   .back {
-      background-image: url(../img/banner-bg.jpg);
+      background-image: url(../img/blue-gradient2.jpg);
       background-size: cover;
     grid-area: frontAndBack;
     transform: rotateY(-180deg);
   }
+  .text{
+      color: white;
+  }
+
   .card-container:hover .card-flip {
     transform: rotateY(180deg);
   }
@@ -428,7 +408,7 @@ flex-wrap: wrap;
       height: 350px;
   }
   .fontShadow1{
-      text-shadow: -2px 3px 1px rgb(121, 121, 124);
+      text-shadow: 2px 2px 3px rgb(121, 121, 124);
   }
   .fontShadow{
     text-shadow: -1px 1px 1px rgb(121, 121, 124);
@@ -443,15 +423,147 @@ flex-wrap: wrap;
     margin-top: 220px;
 }
 .video-width{
-    padding-left: 10px;
-    padding-right: 10px;
-    box-shadow: inset -1px 2px 4px 12px rgb(1, 1, 1);
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: inset -1px 2px 4px 12px rgba(1, 1, 1, 0.822);
 }
 .imgHome{
     height: 180px;
 }
 
+.textHeight{
+    height: 55px;
+}
 
+.w-i{
+    width: 75%;
+    margin-bottom: 55px;
+}
+.w-d{
+    width: 66%;
+}
+@media only screen and (max-width: 993px){
+    .clint{
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .pad{
+        position: relative;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .clint1{
+        padding-left: 13px !important;
+        padding-right: 13px !important;
+    }
+    .pad1{
+        position: relative;
+        padding-left: 1px !important;
+        padding-right: 1px !important;
+    }
+    .imgShadow{
+        box-shadow: none;
+    }
+    .text{
+        color: rgb(54, 53, 53);
+    }
+    .card-container:hover .card-flip {
+        transform: rotateY(0deg);
+      }
+     .card-container {
+        display: grid;
+        perspective: 700px;
+      }
+      .card-flip {
+        display: grid;
+        grid-template: inherit;
+        grid-template-areas: 'front back';
+       
+      }
+      .card-flip div {
+        backface-visibility:inherit ;
+        transform-style: preserve-3d;
+      }
+      .front {
+        grid-area: front;
+        
+      }
+      .back {
+        background-image: none;
+        background-color: rgba(255, 255, 240, 0);
+       border: none;
+      grid-area: back;
+      transform: rotateY(0deg);
+    } 
+    .card-header{
+        background-color: rgba(255, 255, 240, 0);
+        border: none;
+    }
+}
+@media only screen and (max-width: 523px){
+    .clint{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .pad{
+        position: relative;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .clint1{
+        padding-left: 13px !important;
+        padding-right: 13px !important;
+    }
+    .pad1{
+        position: relative;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .imgShadow{
+        box-shadow: none;
+    }
+    .text{
+        color: rgb(54, 53, 53);
+    }
+    .card-container:hover .card-flip {
+        transform: rotateY(0deg);
+      }
+    .card-container {
+        display: grid;
+        
+      }
+      .card-flip {
+        display: grid;
+        grid-template: inherit;
+        grid-template-areas: 'front front'
+                            'back back';
+       
+      }
+      .card-flip div {
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+      }
+      .front {
+        grid-area: front;
+      }
+    .back {
+        background-image: none;
+        background-color: rgba(255, 255, 240, 0);
+       border: none;
+      grid-area: back;
+      transform: rotateY(0deg);
+    } 
+    .card-header{
+        background-color: rgba(255, 255, 240, 0);
+    }
+    .w-i{
+        width: 100%;
+    }
+    .w-d{
+        width: 85%;
+    }
+}
+  .abc{
+      color: #0056b3;
+  }
   
-  
-

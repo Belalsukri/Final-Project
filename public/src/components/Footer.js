@@ -13,16 +13,16 @@ import {Link} from 'react-router-dom'
 				            <div className="col-lg-12">
 				                <ul className="list-inline  ">
 				                    <li className=" text-muted link-hover">
-				                        <Link  className='link-hover ' to="/">Home</Link>
+				                        <Link  className='link-hover text-primary' to="/">Home</Link>
 				                    </li>
 				                    <li  className="mt-3 text-muted link-hover">
-				                        <Link  className='link-hover' to="/About">About</Link>
+				                        <Link  className='link-hover text-primary' to="/About">About</Link>
 				                    </li>
 									<li  className="mt-3 text-muted link-hover">
-				                        <Link  className='link-hover' to="/Services">Service</Link>
+				                        <Link  className='link-hover text-primary' to="/Services">Service</Link>
 				                    </li>
 				                    <li  className="mt-3  text-muted link-hover ">
-				                        <Link className='link-hover' to="/Contact">Contact</Link>
+				                        <Link className='link-hover text-primary' to="/Contact">Contact</Link>
 				                    </li>
 				                </ul>
 				                <p className="copyright text-muted small mt-5">BogyRobots &copy;  Web Design  2020. All Rights Reserved</p>
@@ -30,7 +30,7 @@ import {Link} from 'react-router-dom'
 				          </div>
 				          <div className="col">
 				              <div className="col-md-12" >
-				                <h4 className=" fotrss text-primary">BogyRobots </h4>
+				                <h4 className=" fotrss text-primary ">BogyRobots </h4>
 				                <p className="text-monospace fotrss"> Robotics programming and web Developer company</p>
 				              </div>
 				              <div className="col-md-12">

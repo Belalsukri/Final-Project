@@ -117,13 +117,12 @@ const onLastInput = (e) =>{
                 role="tabpanel"
                 aria-labelledby="home-tab">
                 <h3 className="register-heading">Add Robot</h3>
-                <div className="row register-form d-flex justify-content-center
-">
+                <div className="row register-form d-flex justify-content-center">
                   <div className="col-md-9">
                     
                     <div className="form-group">
                       <input type="text" className="form-control"
-                        placeholder="Type *" ref ={typeRef} onKeyDown={onFirstInput}
+                        placeholder="Name *" ref ={typeRef} onKeyDown={onFirstInput}
                       onChange={(e) => {setMyState({...myState, Type: e.target.value})}} />
                     </div>
 
