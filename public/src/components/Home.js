@@ -18,9 +18,9 @@ const Home=()=>{
            
            <section className="banner-area" id="home">
 				<div className="container">
-					<div className="row fullscreen d-flex align-items-center justify-content-center">
-					<Fade left>
-						<div className="banner-content col-lg-6 col-md-6">
+					<div className="row fullscreen d-flex align-items-center justify-content-center ane">
+					<Fade left className='ane'>
+						<div className="banner-content col-lg-6 col-md-6 ane">
 						
 							<h1 className='text-white text-uppercase'>
 							A better future    <br/>
@@ -29,8 +29,8 @@ const Home=()=>{
 							</h1>
 						</div>
 						</Fade>
-						<Bounce right>
-						<div className="banner-img col-lg-6 col-md-6">
+						<Bounce right className='ane'>
+						<div className="banner-img col-lg-6 col-md-6 ane">
 							<img className="img-fluid" src="img/robot-run-removebg-preview.png" alt=""/>
 						</div>	
          
@@ -51,8 +51,8 @@ const Home=()=>{
 							</p>
 						</div>
 					</div>	
-					<Fade left>					
-					<div className="row">
+					<Fade left className='ane'>					
+					<div className="row ane">
 						<div className="col-lg-3 col-md-6">
 							<div className="single-product">
 								<div className="thumb">
@@ -118,9 +118,9 @@ const Home=()=>{
 			
             <section className="home-about-area">
 				<div className="container-fluid">
-					<div className="row align-items-center">
-					<Fade left>	
-						<div className="col-lg-6 home-about-left no-padding ">
+					<div className="row align-items-center ane">
+					<Fade left className='ane'>	
+						<div className="col-lg-6 home-about-left no-padding ane">
 						<ReactPlayer
 						className="mx-auto d-block img-fluid video-width "
 						controls={true}
@@ -128,8 +128,8 @@ const Home=()=>{
 						url="https://youtu.be/f10B0nnDNqo"/>
 						</div>
 						</Fade>
-						<Fade right>
-						<div className="col-lg-5 home-about-right no-padding ml-4">
+						<Fade right className='ane'>
+						<div className="col-lg-5 home-about-right no-padding ml-4 ane">
 							<h1>Globally Connected <br/>
 							by Large Network</h1>
 							<h5>
@@ -152,9 +152,9 @@ const Home=()=>{
 
             <section className="feature-area section-gap colr ">
 				<div className="container">
-					<div className="row d-flex justify-content-center">
-					<Zoom bottom> 
-						<div className="col-md-12 pb-40 header-text text-center">
+					<div className="row d-flex justify-content-center ane">
+					<Zoom bottom className='ane'> 
+						<div className="col-md-12 pb-40 header-text text-center ane">
 							<h1 className="pb-10 text-white">Some Features that Made us Unique</h1>
 							<p className="text-white">
 								Who are in extremely love with eco friendly system.
@@ -162,9 +162,9 @@ const Home=()=>{
 						</div>
 						</Zoom>
 					</div>							
-					<div className="row">
-					<Slide bottom big>
-						<div className="col-lg-4 col-md-6">
+					<div className="row ane">
+					<Slide bottom big className='ane'>
+						<div className="col-lg-4 col-md-6 ane">
 							<div className="single-feature">
 								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-user"></span>
@@ -178,8 +178,8 @@ const Home=()=>{
 							</div>
 						</div>
 						</Slide>
-						<Slide left big> 
-						<div className="col-lg-4 col-md-6">
+						<Slide left big className='ane'> 
+						<div className="col-lg-4 col-md-6 ane">
 							<div className="single-feature">
 								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-license"></span>
@@ -191,8 +191,8 @@ const Home=()=>{
 							</div>
 						</div>
 						</Slide>
-						<Slide top big>
-						<div className="col-lg-4 col-md-6">
+						<Slide top big className='ane'>
+						<div className="col-lg-4 col-md-6 ane">
 							<div className="single-feature">
 								<a  className="title d-flex flex-row">
 									<span className="lnr lnr-phone"></span>
@@ -212,8 +212,9 @@ const Home=()=>{
 			</section>
 
 
-           <section className="brand-area pt-120">
-				<div className="container ">
+           <section className="brand-area pt-120 ane">
+		   <Zoom bottom className='ane'>
+				<div className="container ane">
 					<div className="row  align-items-center ">
 					<div className="col-2 col-sm-1  single-brand col-lg-1 ml-5">
 							
@@ -262,6 +263,7 @@ const Home=()=>{
 
 					</div>
 				</div>	
+				</Zoom>
 			</section>
 
 
@@ -274,9 +276,9 @@ const Home=()=>{
 							
 						</div>
 					</div>						
-					<div className="row">
-						
-						<div className="col-lg-6 col-md-6 blog-right">
+					<div className="row ">
+					<Fade left className='ane'>	
+						<div className="col-lg-6 col-md-6 blog-right ane">
 							<div className="thumb">
 								<img className="img-fluid" src="img/IoT.jpg" alt=""/>
 							</div>
@@ -290,7 +292,9 @@ const Home=()=>{
 								
 							</div>							
 						</div>
-						<div className="col-lg-6 col-md-6 blog-left">
+						</Fade>
+						<Fade right className='ane'>  
+						<div className="col-lg-6 col-md-6 blog-left ane">
 							<div className="thumb">
 								<img className="img-fluid" src="img/Blog-post-image-800x340.jpg" alt=""/>
 							</div>
@@ -305,6 +309,7 @@ const Home=()=>{
 								
 							</div>
 						</div>
+						</Fade>
 					</div>
 				</div>	
 			</section>

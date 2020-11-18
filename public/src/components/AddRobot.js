@@ -105,7 +105,7 @@ const onLastInput = (e) =>{
           <div className="col-md-3 register-left">
             
             <h3>Welcome</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
+            <p></p>
           
           </div>
           <div className="col-md-9 register-right">
